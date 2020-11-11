@@ -8,3 +8,8 @@ paths:
       responses:
         '200':
           description: Request successful
+  /test:
+    get:
+      responses:
+        '200':
+          description: Request successful
