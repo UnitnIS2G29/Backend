@@ -5,4 +5,7 @@ info:
 paths:
   /:
     $ref: api/index.yaml
+components:
+  responses:
+    $ref: components/responses.yaml
 
