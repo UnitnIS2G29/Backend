@@ -2,9 +2,5 @@ get:
   description: Get test
   responses:
     '200':
-      description: A simple string response
-      content:
-        text/plain:
-          schema:
-            type: string
+      $ref: ../components/responses.yaml#200Response
 
