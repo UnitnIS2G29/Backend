@@ -13,9 +13,10 @@ with open('issues.csv') as csv_file:
         elif(row[0] == ""):
             row[0] = last_name
             row[1] = last_description
+        if "Sviluppo UI" not in row[2]:
 
-        os.system(f'gh issue create -p Backend -t "UserStory: {row[0]} - {row[2]}" -b "{row[1]}"')
-        line_count += 1
+            os.system(f'gh issue create -p Backend -t "UserStory: {row[0]} - {row[2]}" -b "{row[1]}"')
+            line_count += 1
     print(f'Processed {line_count} lines.')
 
 

@@ -1,175 +1,175 @@
-Log In,Come utente vorrei poter accedere alla webapp in modo da usarne i servizi.,Design API,,15,,,,,,,,,,,,,,,
-Log In,Come utente vorrei poter accedere alla webapp in modo da usarne i servizi.,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-Log In,Come utente vorrei poter accedere alla webapp in modo da usarne i servizi.,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-Log In,Come utente vorrei poter accedere alla webapp in modo da usarne i servizi.,Sviluppo UI,,,,,,,,,,,,,,,,,
-Log In,Come utente vorrei poter accedere alla webapp in modo da usarne i servizi.,Documentazione,,,,,,,,,,,,,,,,,
-Log In,Come utente vorrei poter accedere alla webapp in modo da usarne i servizi.,Testing,,,,,,,,,,,,,,,,,
-Log In,Come utente vorrei poter accedere alla webapp in modo da usarne i servizi.,Deploy,,,,,,,,,,,,,,,,,
-Log Out,Come utente vorrei poter uscire dal mio account della webapp per ragioni di sicurezza e nel caso un altro utente debba usare il mio stesso dispositivo.,Design API,,2,,,,,,,,,,,,,,,
-Log Out,Come utente vorrei poter uscire dal mio account della webapp per ragioni di sicurezza e nel caso un altro utente debba usare il mio stesso dispositivo.,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-Log Out,Come utente vorrei poter uscire dal mio account della webapp per ragioni di sicurezza e nel caso un altro utente debba usare il mio stesso dispositivo.,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-Log Out,Come utente vorrei poter uscire dal mio account della webapp per ragioni di sicurezza e nel caso un altro utente debba usare il mio stesso dispositivo.,Sviluppo UI,,,,,,,,,,,,,,,,,
-Log Out,Come utente vorrei poter uscire dal mio account della webapp per ragioni di sicurezza e nel caso un altro utente debba usare il mio stesso dispositivo.,Documentazione,,,,,,,,,,,,,,,,,
-Log Out,Come utente vorrei poter uscire dal mio account della webapp per ragioni di sicurezza e nel caso un altro utente debba usare il mio stesso dispositivo.,Testing,,,,,,,,,,,,,,,,,
-Log Out,Come utente vorrei poter uscire dal mio account della webapp per ragioni di sicurezza e nel caso un altro utente debba usare il mio stesso dispositivo.,Deploy,,,,,,,,,,,,,,,,,
-Timbrare,Come utente voglio poter timbrare per segnalare la mia presenza nel posto di lavoro.,Design API,,10,,,,,,,,,,,,,,,
-Timbrare,Come utente voglio poter timbrare per segnalare la mia presenza nel posto di lavoro.,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-Timbrare,Come utente voglio poter timbrare per segnalare la mia presenza nel posto di lavoro.,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-Timbrare,Come utente voglio poter timbrare per segnalare la mia presenza nel posto di lavoro.,Sviluppo UI,,,,,,,,,,,,,,,,,
-Timbrare,Come utente voglio poter timbrare per segnalare la mia presenza nel posto di lavoro.,Documentazione,,,,,,,,,,,,,,,,,
-Timbrare,Come utente voglio poter timbrare per segnalare la mia presenza nel posto di lavoro.,Testing,,,,,,,,,,,,,,,,,
-Timbrare,Come utente voglio poter timbrare per segnalare la mia presenza nel posto di lavoro.,Deploy,,,,,,,,,,,,,,,,,
-Cambia password,Come utente vorrei poter cambiare o resettare la mia password per ragioni di sicurezza.,Design API,,5,,,,,,,,,,,,,,,
-Cambia password,Come utente vorrei poter cambiare o resettare la mia password per ragioni di sicurezza.,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-Cambia password,Come utente vorrei poter cambiare o resettare la mia password per ragioni di sicurezza.,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-Cambia password,Come utente vorrei poter cambiare o resettare la mia password per ragioni di sicurezza.,Sviluppo UI,,,,,,,,,,,,,,,,,
-Cambia password,Come utente vorrei poter cambiare o resettare la mia password per ragioni di sicurezza.,Documentazione,,,,,,,,,,,,,,,,,
-Cambia password,Come utente vorrei poter cambiare o resettare la mia password per ragioni di sicurezza.,Testing,,,,,,,,,,,,,,,,,
-Cambia password,Come utente vorrei poter cambiare o resettare la mia password per ragioni di sicurezza.,Deploy,,,,,,,,,,,,,,,,,
-Visualizzare dati account,"Come utente voglio poter visualizzare i miei dati personali come nome, cognome ed e-mail per controllare che siano corretti.",Design API,,6,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Visualizza dati personali,"Come utente voglio avere una Area Personale che raccoglie i miei dati personali che riguardano l'azienda come il nome del mio reparto, i miei progetti attivi e informazioni sul mio compenso e ferie. Questo mi permette di avere informazioni sul mio ruolo nell'azienda con uno sguardo.",Design API,,8,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Visualizzare stipendi,Come dipendente voglio visualizzare le mie buste paghe per avere informazioni sul mio compenso.,Design API,,5,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Modifica dati,"Come responsabile voglio poter modificare i dati dei miei dipendenti (costo orario, ecc) in caso di errori o cambiamenti.",Design API,,20,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Visualizza log modifiche,Come utente voglio poter visualizzare le modifiche ai miei dati fatte dai miei responsabili in modo che siano tracciabili e trasparenti.,Design API,,10,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Richiesta ferie,Come dipendente voglio poter richiedere giorni di ferie per avvisare il mio responsabile.,Design API,,10,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Richiesta permesso malattia,Come dipendendente voglio poter richiedere giorni di malattia per avvisare il mio responsabile.,Design API,,10,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Visualizzazione stato richieste,Come dipendente voglio poter vedere una lista delle richieste effettuate ed il loro stato per sapere se sono state approvate.,Design API,,5,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Approvazione richieste,Come responsabile voglio essere in grado di approvare o rifiutare le richieste che i dipendenti assegnati a me creano per informarli dellia mia decisione.,Design API,,5,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Misurare tempo,Come dipendente voglio misurare le ore di lavoro che svolgo per essere correttamente retribuito.,Design API,,20,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Assegnare delle categorie al tempo tracciato,"Come dipendente voglio poter assegnare una categoria all'attività temporale tracciata, selezionandola da una lista di categorie predefinite dall'amministrazione (ad esempio, Pulizie, o Progetto A..) per mostrare al mio responsabile come ho allocato il mio tempo di lavoro.",Design API,,2,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Gestione categorie,Come responsabile voglio poter creare e rimuovere categorie in modo che i miei dipendenti le possano usare.,Design API,,10,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Riepilogo categoria progetti,"Come responsabile voglio vedere per ogni progetto quante ore sono state investite, i dipendenti che ci hanno lavorato e un'approssimazione del costo per comprendere se i progetti sono svolti efficientemente.",Design API,,15,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Divisione dei dipendenti per reparti,Come responsabile devo poter assegnare i dipendenti al loro reparto in modo che possano vedere le informazioni a loro pertinenti (turni).,Design API,,10,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Visualizzare turni,Come dipendente voglio vedere i miei turni e quelli dei colleghi dei turni successivi per richiedere un eventuale cambio turno. ,Design API,,10,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Visualizzare turni,Come responsabile voglio vedere i turni di tutti i dipendenti dei reparti di cui sono responsabile per avere una visione di insieme del mio reparto.,Design API,,10,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Accessibilità,Come utente vorrei poter visualizzare la webapp anche con problemi di daltonismo o dislessia in modo che mi sia accessibile.,Design API,,10,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Fruibilità,Come utente vorrei che la webapp sia utilizzabile anche su dispositivi mobili in modo tale da non essere obbligato ad avere un computer.,Design API,,20,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Fruibilità,Come utente vorrei che la webapp sia veloce nei caricamenti in modo tale da non perdere troppo tempo nella gestione del cartellino.,Design API,,10,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Accedere alle sezioni,Come utente vorrei che fosse possibile passare da qualsiasi sezione ad un altra in ogni momento.,Design API,,2,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
-Permessi Admin,Come amministratore di sistema vorrei poter aver accesso ai dati di ogni dipendente per modificarli in caso di errori o problemi,Design API,,5,,,,,,,,,,,,,,,
-,,Implementazione metodo REST,,,,,,,,,,,,,,,,,
-,,Progettazione e implementazione DB,,,,,,,,,,,,,,,,,
-,,Sviluppo UI,,,,,,,,,,,,,,,,,
-,,Documentazione,,,,,,,,,,,,,,,,,
-,,Testing,,,,,,,,,,,,,,,,,
-,,Deploy,,,,,,,,,,,,,,,,,
+Log In,Come utente vorrei poter accedere alla webapp in modo da usarne i servizi.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Log Out,Come utente vorrei poter uscire dal mio account della webapp per ragioni di sicurezza e nel caso un altro utente debba usare il mio stesso dispositivo.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Timbrare,Come utente voglio poter timbrare per segnalare la mia presenza nel posto di lavoro.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Cambia password,Come utente vorrei poter cambiare o resettare la mia password per ragioni di sicurezza.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Visualizzare dati account,"Come utente voglio poter visualizzare i miei dati personali come nome, cognome ed e-mail per controllare che siano corretti.",Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Visualizza dati personali,"Come utente voglio avere una Area Personale che raccoglie i miei dati personali che riguardano l'azienda come il nome del mio reparto, i miei progetti attivi e informazioni sul mio compenso e ferie. Questo mi permette di avere informazioni sul mio ruolo nell'azienda con uno sguardo.",Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Visualizzare stipendi,Come dipendente voglio visualizzare le mie buste paghe per avere informazioni sul mio compenso.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Modifica dati,"Come responsabile voglio poter modificare i dati dei miei dipendenti (costo orario, ecc) in caso di errori o cambiamenti.",Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Visualizza log modifiche,Come utente voglio poter visualizzare le modifiche ai miei dati fatte dai miei responsabili in modo che siano tracciabili e trasparenti.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Richiesta ferie,Come dipendente voglio poter richiedere giorni di ferie per avvisare il mio responsabile.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Richiesta permesso malattia,Come dipendendente voglio poter richiedere giorni di malattia per avvisare il mio responsabile.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Visualizzazione stato richieste,Come dipendente voglio poter vedere una lista delle richieste effettuate ed il loro stato per sapere se sono state approvate.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Approvazione richieste,Come responsabile voglio essere in grado di approvare o rifiutare le richieste che i dipendenti assegnati a me creano per informarli dellia mia decisione.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Misurare tempo,Come dipendente voglio misurare le ore di lavoro che svolgo per essere correttamente retribuito.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Assegnare delle categorie al tempo tracciato,"Come dipendente voglio poter assegnare una categoria all'attività temporale tracciata, selezionandola da una lista di categorie predefinite dall'amministrazione (ad esempio, Pulizie, o Progetto A..) per mostrare al mio responsabile come ho allocato il mio tempo di lavoro.",Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Gestione categorie,Come responsabile voglio poter creare e rimuovere categorie in modo che i miei dipendenti le possano usare.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Riepilogo categoria progetti,"Come responsabile voglio vedere per ogni progetto quante ore sono state investite, i dipendenti che ci hanno lavorato e un'approssimazione del costo per comprendere se i progetti sono svolti efficientemente.",Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Divisione dei dipendenti per reparti,Come responsabile devo poter assegnare i dipendenti al loro reparto in modo che possano vedere le informazioni a loro pertinenti (turni).,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Visualizzare turni dipendente,Come dipendente voglio vedere i miei turni e quelli dei colleghi dei turni successivi per richiedere un eventuale cambio turno. ,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Visualizzare turni responsabile,Come responsabile voglio vedere i turni di tutti i dipendenti dei reparti di cui sono responsabile per avere una visione di insieme del mio reparto.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Accessibilità,Come utente vorrei poter visualizzare la webapp anche con problemi di daltonismo o dislessia in modo che mi sia accessibile.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Fruibilità responsive,Come utente vorrei che la webapp sia utilizzabile anche su dispositivi mobili in modo tale da non essere obbligato ad avere un computer.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Fruibilità,Come utente vorrei che la webapp sia veloce nei caricamenti in modo tale da non perdere troppo tempo nella gestione del cartellino.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Accedere alle sezioni,Come utente vorrei che fosse possibile passare da qualsiasi sezione ad un altra in ogni momento.,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
+Permessi Admin,Come amministratore di sistema vorrei poter aver accesso ai dati di ogni dipendente per modificarli in caso di errori o problemi,Design API
+,,Implementazione metodo REST
+,,Progettazione e implementazione DB
+,,Sviluppo UI
+,,Documentazione
+,,Testing
+,,Deploy
