@@ -6,9 +6,9 @@ paths:
   /:
     $ref: routes/index.yaml
   /categories:
-    $ref: routes/categories.yaml
+    $ref: routes/categories/index.yaml
   /categories/{id}:
-    $ref: routes/categories-by-id.yaml
+    $ref: routes/categories/by-id.yaml
   /check-in:
     $ref: routes/check-in/check-in.yaml
 
