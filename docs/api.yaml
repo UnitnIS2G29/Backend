@@ -9,6 +9,8 @@ paths:
     $ref: routes/categories.yaml
   /categories/{id}:
     $ref: routes/categories-by-id.yaml
+  /check-in:
+    $ref: routes/check-in/check-in.yaml
 
 components:
   responses:
