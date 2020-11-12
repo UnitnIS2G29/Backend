@@ -1,3 +1,11 @@
 200Response:
   description: Successful Request
 
+404Response:
+  description: Not Found
+
+401Response:
+  description: Unauthorized (Unauthenticated)
+
+403Response:
+  description: Forbidden
