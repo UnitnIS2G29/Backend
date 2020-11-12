@@ -8,5 +8,33 @@ category:
     description:
       type: string
 
+
 timestamp:
   type: integer
+
+timer:
+  type: object
+  properties:
+    id:
+      type: integer
+      description: Auto-incremental id
+    
+    started_at:
+      type: timestamp
+      description: Start time of the timer
+      required: true
+    
+    stopped_at:
+      type: timestamp | null
+      description: Stop time of the timer. Can be null if timer is running
+      required: false
+
+    category:
+      type: category | null
+      description: Category of the clocked event
+      required: false
+
+    description:
+      type: text
+      description: Description of the clocked event
+      required: false

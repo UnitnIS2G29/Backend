@@ -1,0 +1,93 @@
+get:
+  summary: Get informations about running user timer
+  description: Get informations about the currently running timer of a user.<br>If no timer is running, response will be NULL
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Timer object or Null
+      content:
+        'application/json':
+          schema:
+            oneOf:
+              - $ref: '#components/schemas/timer'
+              - null
+    '500':
+      $ref: '#components/responses/500Response'
+
+
+put:
+  summary: Edit the current running timer
+  description: Edit the currently running timer
+  security:
+    - bearerAuth: []
+  requestBody:
+    description: Timer Body
+    content: 
+      'application/json':
+        schema:
+          $ref: '#components/schemas/timer'
+  
+  responses:
+    '200':
+      description: Timer object
+      content:
+        'application/json':
+          schema:
+            oneOf:
+              - $ref: '#components/schemas/timer'
+              - null
+
+    '500':
+      $ref: '#components/responses/500Response'
+
+
+delete:
+  summary: Delete the currently running timer
+  description: Delete the currently running timer
+  security:
+    - bearerAuth: []
+  
+  responses:
+    '200':
+      description: Success
+    '500':
+      $ref: '#components/responses/500Response'
+
+
+post:
+  summary: Start a new user timer
+  description: Start a new user timer.<br>If there is a running timer, automatically stop the preceding one
+  security:
+    - bearerAuth: []
+  requestBody:
+    description: Timer Body
+    content: 
+      'application/json':
+        schema:
+          $ref: '#components/schemas/timer'
+  
+  responses:
+    '200':
+      description: Timer object
+      content:
+        'application/json':
+          schema:
+            $ref: '#components/schemas/timer'
+
+    '500':
+      $ref: '#components/responses/500Response'
+
+
+patch:
+  summary: Stop the current user timer
+  description: Stop the current running timer
+  security:
+    - bearerAuth: []
+  
+  responses:
+    '200':
+      description: Success
+    '500':
+      $ref: '#components/responses/500Response'
+
