@@ -1,0 +1,60 @@
+get:
+  parameters:
+    - $ref: '#components/parameters/id'
+  summary: Get informations about a specific timer
+  description: Get informations about a specific timer
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Timer object
+      content:
+        'application/json':
+          schema:
+            $ref: '#components/schemas/timer'
+    '500':
+      $ref: '#components/responses/500Response'
+    '404':
+      $ref: '#components/responses/404Response'
+
+put:
+  parameters:
+    - $ref: '#components/parameters/id'
+  summary: Edit a user Timer
+  description: Edit a user timer by given ID.<br>Change start time, end time, category, description
+  security:
+    - bearerAuth: []
+  requestBody:
+    description: Timer Body
+    content: 
+      'application/json':
+        schema:
+          $ref: '#components/schemas/timer'
+  
+  responses:
+    '200':
+      description: Timer object
+      content:
+        'application/json':
+          schema:
+            $ref: '#components/schemas/timer'
+    '404':
+      $ref: '#components/responses/404Response'
+    '500':
+      $ref: '#components/responses/500Response'
+
+delete:
+  parameters:
+    - $ref: '#components/parameters/id'
+  summary: Delete a user Timer
+  description: Delete a user timer by given ID
+  security:
+    - bearerAuth: []
+  
+  responses:
+    '200':
+      description: Succesfull Request
+    '404':
+      $ref: '#components/responses/404Response'
+    '500':
+      $ref: '#components/responses/500Response'

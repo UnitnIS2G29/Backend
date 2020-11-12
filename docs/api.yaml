@@ -1,24 +1,43 @@
 openapi: 3.0.0
+
 info:
   version: '1.0'
   title: "Gruppo 29 Unitn IS2"
+
 paths:
   /:
     $ref: routes/index.yaml
+
   /categories:
     $ref: routes/categories/index.yaml
+
   /categories/{id}:
     $ref: routes/categories/by-id.yaml
+
+
+  /timers:
+    $ref: routes/timers/index.yaml
+    
+  /timers/self:
+    $ref: routes/timers/self.yaml
+    
+  /timers/{id}:
+    $ref: routes/timers/by-id.yaml
+
 
 components:
   responses:
     $ref: components/responses.yaml
+
   parameters:
     $ref: components/parameters.yaml
+
   requestBodies:
     $ref: components/requestBodies.yaml
+
   schemas:
     $ref: components/schemas.yaml
+
   securitySchemes:
     $ref: components/securitySchemas.yaml
 
