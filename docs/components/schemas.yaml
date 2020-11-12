@@ -17,27 +17,21 @@ timer:
       description: Auto-incremental id
     
     started_at:
-      type: timestamp
+      type: string
       description: Start time of the timer
-      required: true
-      nullable: true
     
     stopped_at:
-      type: timestamp | null
+      type: string
       description: Stop time of the timer. Can be null if timer is running
-      required: false
 
     category:
-      type: category | null
+      type: object
       description: Category of the clocked event
-      required: false
 
     description:
-      type: text
+      type: string
       description: Description of the clocked event
-      required: false
 
 
-null:
+Null:
   nullable: true
-  type: null
