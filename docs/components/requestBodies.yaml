@@ -1,0 +1,6 @@
+categoriesBodyRes:
+  description: category body
+  content:
+    'application/json':
+      schema:
+        $ref: ./schemas.yaml#/category

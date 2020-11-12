@@ -1,6 +1,9 @@
 200Response:
   description: Successful Request
 
+400Response:
+  description: Bad Request
+
 404Response:
   description: Not Found
 
@@ -9,3 +12,12 @@
 
 403Response:
   description: Forbidden
+
+500Response:
+  description: Server error
+  content:
+    'text/plain':
+      schema:
+        type: string
+      example: "Internal Server Error #2"
+

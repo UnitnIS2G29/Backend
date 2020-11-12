@@ -4,8 +4,19 @@ info:
   title: "Gruppo 29 Unitn IS2"
 paths:
   /:
-    $ref: api/index.yaml
+    $ref: routes/index.yaml
+  /categories:
+    $ref: routes/categories.yaml
+  /categories/{id}:
+    $ref: routes/categories-by-id.yaml
+
 components:
   responses:
     $ref: components/responses.yaml
+  parameters:
+    $ref: components/parameters.yaml
+  requestBodies:
+    $ref: components/requestBodies.yaml
+  schemas:
+    $ref: components/schemas.yaml
 

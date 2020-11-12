@@ -1,0 +1,3 @@
+token:
+  in: header
+  description: token to be passed as a header

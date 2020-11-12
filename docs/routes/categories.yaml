@@ -1,0 +1,34 @@
+get:
+  description: Returns all categories
+  responses:
+    '200':
+      description: categories response
+      content:
+        'application/json':
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas.yaml#/category
+    '404':
+      $ref: ../components/responses.yaml#/404Response
+    '500':
+      $ref: ../components/responses.yaml#/500Response
+
+post:
+  description: Add a new category
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          $ref: ../components/schemas.yaml#/category
+  responses:
+    '201':
+      description: sussesfully added category
+      content:
+        'application/json':
+          schema:
+            $ref: ../components/schemas.yaml#/category
+    '400':
+      $ref: ../components/responses.yaml#/400Response
+    '500':
+      $ref: ../components/responses.yaml#/500Response
