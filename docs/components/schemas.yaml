@@ -1,4 +1,4 @@
-category:
+Category:
   type: object
   properties:
     id:
@@ -25,7 +25,7 @@ timer:
       description: Stop time of the timer. Can be null if timer is running
 
     category:
-      type: object
+      $ref: '#components/schemas/Category'
       description: Category of the clocked event
 
     description:

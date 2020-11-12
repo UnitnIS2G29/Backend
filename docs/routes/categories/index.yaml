@@ -8,7 +8,7 @@ get:
           schema:
             type: array
             items:
-              $ref: '#components/schemas/category'
+              $ref: '#components/schemas/Category'
     '404':
       $ref: '#components/responses/404Response'
     '500':
@@ -22,14 +22,14 @@ post:
     content:
       'application/json':
         schema:
-          $ref: '#components/schemas/category'
+          $ref: '#components/schemas/Category'
   responses:
     '201':
       description: sussesfully added category
       content:
         'application/json':
           schema:
-            $ref: '#components/schemas/category'
+            $ref: '#components/schemas/Category'
     '400':
       $ref:  '#components/responses/400Response'
     '401':

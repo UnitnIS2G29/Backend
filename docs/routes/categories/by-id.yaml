@@ -8,7 +8,7 @@ get:
       content:
         'application/json':
           schema:
-            $ref: '#components/schemas/category'
+            $ref: '#components/schemas/Category'
     '404':
       $ref: '#components/responses/404Response'
     '500':
@@ -28,7 +28,7 @@ put:
       content:
         'application/json':
           schema:
-            $ref: '#components/schemas/category'
+            $ref: '#components/schemas/Category'
     '400':
       $ref: '#components/responses/400Response'
     '401':
@@ -50,7 +50,7 @@ delete:
       content:
         'application/json':
           schema:
-            $ref: '#components/schemas/category'
+            $ref: '#components/schemas/Category'
     '401':
       $ref: '#components/responses/401Response'
     '404':
