@@ -9,7 +9,7 @@ Category:
       type: string
 
 
-timer:
+Timer:
   type: object
   properties:
     id:
@@ -25,13 +25,12 @@ timer:
       description: Stop time of the timer. Can be null if timer is running
 
     category:
-      $ref: '#components/schemas/Category'
-      description: Category of the clocked event
+      $ref: '#/Category'
 
     description:
       type: string
       description: Description of the clocked event
 
 
-Null:
+Empty:
   nullable: true

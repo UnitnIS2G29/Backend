@@ -1,6 +1,6 @@
 get:
   parameters:
-    - $ref: '#components/parameters/id'
+    - $ref: '../../components/parameters.yaml#/id'
   summary: Get informations about a specific timer
   description: Get informations about a specific timer
   security:
@@ -11,15 +11,15 @@ get:
       content:
         'application/json':
           schema:
-            $ref: '#components/schemas/timer'
+            $ref: '../../components/schemas.yaml#/Timer'
     '500':
-      $ref: '#components/responses/500Response'
+      $ref: '../../components/responses.yaml#/500Response'
     '404':
-      $ref: '#components/responses/404Response'
+      $ref: '../../components/responses.yaml#/404Response'
 
 put:
   parameters:
-    - $ref: '#components/parameters/id'
+    - $ref: '../../components/parameters.yaml#/id'
   summary: Edit a user Timer
   description: Edit a user timer by given ID.<br>Change start time, end time, category, description
   security:
@@ -29,7 +29,7 @@ put:
     content: 
       'application/json':
         schema:
-          $ref: '#components/schemas/timer'
+          $ref: '../../components/schemas.yaml#/Timer'
   
   responses:
     '200':
@@ -37,15 +37,15 @@ put:
       content:
         'application/json':
           schema:
-            $ref: '#components/schemas/timer'
+            $ref: '../../components/schemas.yaml#/Timer'
     '404':
-      $ref: '#components/responses/404Response'
+      $ref: '../../components/responses.yaml#/404Response'
     '500':
-      $ref: '#components/responses/500Response'
+      $ref: '../../components/responses.yaml#/500Response'
 
 delete:
   parameters:
-    - $ref: '#components/parameters/id'
+    - $ref: '../../components/parameters.yaml#/id'
   summary: Delete a user Timer
   description: Delete a user timer by given ID
   security:
@@ -55,6 +55,6 @@ delete:
     '200':
       description: Succesfull Request
     '404':
-      $ref: '#components/responses/404Response'
+      $ref: '../../components/responses.yaml#/404Response'
     '500':
-      $ref: '#components/responses/500Response'
+      $ref: '../../components/responses.yaml#/500Response'
