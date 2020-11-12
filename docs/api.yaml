@@ -19,4 +19,6 @@ components:
     $ref: components/requestBodies.yaml
   schemas:
     $ref: components/schemas.yaml
+  securitySchemes:
+    $ref: components/securitySchemas.yaml
 

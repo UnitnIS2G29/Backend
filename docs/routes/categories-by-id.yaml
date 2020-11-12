@@ -16,6 +16,8 @@ get:
 
 put:
   description: Update a category
+  security:
+    - bearerAuth: []
   parameters:
     - $ref: ../components/parameters.yaml#/id
   requestBody:
@@ -29,6 +31,8 @@ put:
             $ref: ../components/schemas.yaml#/category
     '400':
       $ref: ../components/responses.yaml#/400Response
+    '401':
+      $ref: ../components/responses.yaml#/401Response
     '404':
       $ref: ../components/responses.yaml#/404Response
     '500':
@@ -36,6 +40,8 @@ put:
 
 delete:
   description: Delete a category
+  security:
+    - bearerAuth: []
   parameters:
     - $ref: ../components/parameters.yaml#/id
   responses:
@@ -45,5 +51,9 @@ delete:
         'application/json':
           schema:
             $ref: ../components/schemas.yaml#/category
+    '401':
+      $ref: ../components/responses.yaml#/401Response
+    '404':
+      $ref: ../components/responses.yaml#/404Response
     '500':
       $ref: ../components/responses.yaml#/500Response

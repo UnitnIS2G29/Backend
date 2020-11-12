@@ -16,6 +16,8 @@ get:
 
 post:
   description: Add a new category
+  security:
+    - bearerAuth: []
   requestBody:
     content:
       'application/json':
@@ -30,5 +32,7 @@ post:
             $ref: ../components/schemas.yaml#/category
     '400':
       $ref: ../components/responses.yaml#/400Response
+    '401':
+      $ref: ../components/responses.yaml#/401Response
     '500':
       $ref: ../components/responses.yaml#/500Response
