@@ -1,0 +1,13 @@
+get:
+  description: Check in the user
+  responses:
+    '200':
+      description: Check in successful
+      content:
+        'application/json':
+          schema:
+            $ref: '#components/schemas#/timestamp'
+    '404':
+      $ref: '#components/responses#/404Response'
+    '500':
+      $ref: '#components/responses#/500Response'

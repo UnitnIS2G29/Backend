@@ -9,6 +9,9 @@ category:
       type: string
 
 
+timestamp:
+  type: integer
+
 timer:
   type: object
   properties:
@@ -35,4 +38,3 @@ timer:
       type: text
       description: Description of the clocked event
       required: false
-
