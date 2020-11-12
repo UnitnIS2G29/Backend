@@ -1,59 +1,59 @@
 get:
   description: Get category from id
   parameters:
-    - $ref: '#components/parameters#/id'
+    - $ref: '#components/parameters/id'
   responses:
     '200':
       description: Category
       content:
         'application/json':
           schema:
-            $ref: '#components/schemas#/category'
+            $ref: '#components/schemas/category'
     '404':
-      $ref: '#components/responses#/404Response'
+      $ref: '#components/responses/404Response'
     '500':
-      $ref: '#components/responses#/500Response'
+      $ref: '#components/responses/500Response'
 
 put:
   description: Update a category
   security:
     - bearerAuth: []
   parameters:
-    - $ref: '#components/parameters#/id'
+    - $ref: '#components/parameters/id'
   requestBody:
-    $ref: '#components/requestBodies#/categoriesBodyRes'
+    $ref: '#components/requestBodies/categoriesBodyRes'
   responses:
     '200':
       description: Category update
       content:
         'application/json':
           schema:
-            $ref: '#components/schemas#/category'
+            $ref: '#components/schemas/category'
     '400':
-      $ref: '#components/responses#/400Response'
+      $ref: '#components/responses/400Response'
     '401':
-      $ref: '#components/responses#/401Response'
+      $ref: '#components/responses/401Response'
     '404':
-      $ref: '#components/responses#/404Response'
+      $ref: '#components/responses/404Response'
     '500':
-      $ref: '#components/responses#/500Response'
+      $ref: '#components/responses/500Response'
 
 delete:
   description: Delete a category
   security:
     - bearerAuth: []
   parameters:
-    - $ref: '#components/parameters#/id'
+    - $ref: '#components/parameters/id'
   responses:
     '200':
       description: Category update
       content:
         'application/json':
           schema:
-            $ref: '#components/schemas#/category'
+            $ref: '#components/schemas/category'
     '401':
-      $ref: '#components/responses#/401Response'
+      $ref: '#components/responses/401Response'
     '404':
-      $ref: '#components/responses#/404Response'
+      $ref: '#components/responses/404Response'
     '500':
-      $ref: '#components/responses#/500Response'
+      $ref: '#components/responses/500Response'

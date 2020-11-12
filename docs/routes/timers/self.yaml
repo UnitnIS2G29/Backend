@@ -11,7 +11,7 @@ get:
           schema:
             oneOf:
               - $ref: '#components/schemas/timer'
-              - null
+              - $ref: '#components/schemas/null'
     '500':
       $ref: '#components/responses/500Response'
 
@@ -36,7 +36,7 @@ put:
           schema:
             oneOf:
               - $ref: '#components/schemas/timer'
-              - null
+              - $ref: '#components/schemas/null'
 
     '500':
       $ref: '#components/responses/500Response'

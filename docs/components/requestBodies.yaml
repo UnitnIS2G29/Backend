@@ -3,4 +3,4 @@ categoriesBodyRes:
   content:
     'application/json':
       schema:
-        $ref: ./schemas.yaml#/category
+        $ref:  '#components/schemas/category'
