@@ -8,11 +8,11 @@ get:
           schema:
             type: array
             items:
-              $ref: '#components/schemas#/category'
+              $ref: '../../components/schemas.yaml#/Category'
     '404':
-      $ref: '#components/responses#/404Response'
+      $ref: '../../components/responses.yaml#/404Response'
     '500':
-      $ref: '#components/responses#/500Response'
+      $ref: '../../components/responses.yaml#/500Response'
 
 post:
   description: Add a new category
@@ -22,17 +22,17 @@ post:
     content:
       'application/json':
         schema:
-          $ref: '#components/schemas#/category'
+          $ref: '../../components/schemas.yaml#/Category'
   responses:
     '201':
       description: sussesfully added category
       content:
         'application/json':
           schema:
-            $ref: '#components/schemas#/category'
+            $ref: '../../components/schemas.yaml#/Category'
     '400':
-      $ref:  '#components/responses#/400Response'
+      $ref:  '../../components/responses.yaml#/400Response'
     '401':
-      $ref:  '#components/responses#/401Response'
+      $ref:  '../../components/responses.yaml#/401Response'
     '500':
-      $ref: '#components/responses#/500Response'
+      $ref: '../../components/responses.yaml#/500Response'

@@ -1,4 +1,4 @@
-category:
+Category:
   type: object
   properties:
     id:
@@ -9,10 +9,7 @@ category:
       type: string
 
 
-timestamp:
-  type: integer
-
-timer:
+Timer:
   type: object
   properties:
     id:
@@ -20,21 +17,20 @@ timer:
       description: Auto-incremental id
     
     started_at:
-      type: timestamp
+      type: string
       description: Start time of the timer
-      required: true
     
     stopped_at:
-      type: timestamp | null
+      type: string
       description: Stop time of the timer. Can be null if timer is running
-      required: false
 
     category:
-      type: category | null
-      description: Category of the clocked event
-      required: false
+      $ref: '#/Category'
 
     description:
-      type: text
+      type: string
       description: Description of the clocked event
-      required: false
+
+
+Empty:
+  nullable: true
