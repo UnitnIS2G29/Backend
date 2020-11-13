@@ -21,7 +21,7 @@ put:
   parameters:
     - $ref: '../../components/parameters.yaml#/id'
   requestBody:
-    $ref: '../../components/requestBodies.yaml#/departmentssBodyRes'
+    $ref: '../../components/requestBodies.yaml#/departmentsBodyRes'
   responses:
     '200':
       description: Department update
