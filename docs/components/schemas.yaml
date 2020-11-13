@@ -1,4 +1,4 @@
-Category:
+category:
   type: object
   properties:
     id:
@@ -8,51 +8,3 @@ Category:
     description:
       type: string
 
-
-Timer:
-  type: object
-  properties:
-    id:
-      type: integer
-      description: Auto-incremental id
-
-    started_at:
-      type: string
-      description: Start time of the timer
-
-    stopped_at:
-      type: string
-      description: Stop time of the timer. Can be null if timer is running
-
-    category:
-      $ref: '#/Category'
-
-    description:
-      type: string
-      description: Description of the clocked event
-
-User:
-  type: object
-  properties:
-    id:
-      type: string
-      description: User id
-    name:
-      type: string
-      description: User name
-    email:
-      type: string
-      description: User email
-    password:
-      type: string
-      description: User hashed password
-    token:
-      type: array
-      description: User tokens for different sessions
-
-Timestamp:
-  type: integer
-
-
-Empty:
-  nullable: true
