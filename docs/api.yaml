@@ -29,6 +29,9 @@ paths:
   /departments:
     $ref: routes/departments/index.yaml
 
+  /departments/{id}:
+    $ref: routes/departments/by.id.yaml
+
   /login:
     $ref: routes/login/index.yaml
 
