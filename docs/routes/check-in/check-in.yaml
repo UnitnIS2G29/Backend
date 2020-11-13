@@ -6,7 +6,7 @@ get:
       content:
         'application/json':
           schema:
-            $ref: '../../components/schemas.yaml#/timestamp'
+            $ref: '../../components/schemas.yaml#/Timestamp'
     '404':
       $ref: '../../components/responses.yaml#/404Response'
     '500':

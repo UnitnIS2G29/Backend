@@ -32,7 +32,7 @@ Timer:
       description: Description of the clocked event
 
 User:
-  type: Object
+  type: object
   properties:
     id:
       type: string
@@ -49,6 +49,9 @@ User:
     token:
       type: array
       description: User tokens for different sessions
+
+Timestamp:
+  type: integer
 
 
 Empty:
