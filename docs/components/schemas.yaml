@@ -32,7 +32,7 @@ Timer:
       description: Description of the clocked event
 
 User:
-  type: Object
+  type: object
   properties:
     id:
       type: string
@@ -49,7 +49,6 @@ User:
     token:
       type: array
       description: User tokens for different sessions
-
 
 RequestTimeOff:
   type: object
@@ -87,6 +86,9 @@ RequestTimeOff:
     accepted:
       type: boolean
       description: 'Tracks if the request has been approved'
+
+Timestamp:
+  type: integer
 
 Empty:
   nullable: true
