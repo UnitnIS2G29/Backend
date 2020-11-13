@@ -10,10 +10,10 @@ get:
         'application/json':
           schema:
             oneOf:
-              - $ref: '#components/schemas/timer'
-              - null
+              - $ref: '../../components/schemas.yaml#/Timer'
+              - $ref: '../../components/schemas.yaml#/Empty'
     '500':
-      $ref: '#components/responses/500Response'
+      $ref: '../../components/responses.yaml#/500Response'
 
 
 put:
@@ -26,7 +26,7 @@ put:
     content: 
       'application/json':
         schema:
-          $ref: '#components/schemas/timer'
+          $ref: '../../components/schemas.yaml#/Timer'
   
   responses:
     '200':
@@ -35,11 +35,11 @@ put:
         'application/json':
           schema:
             oneOf:
-              - $ref: '#components/schemas/timer'
-              - null
+              - $ref: '../../components/schemas.yaml#/Timer'
+              - $ref: '../../components/schemas.yaml#/Empty'
 
     '500':
-      $ref: '#components/responses/500Response'
+      $ref: '../../components/responses.yaml#/500Response'
 
 
 delete:
@@ -52,7 +52,7 @@ delete:
     '200':
       description: Success
     '500':
-      $ref: '#components/responses/500Response'
+      $ref: '../../components/responses.yaml#/500Response'
 
 
 post:
@@ -65,7 +65,7 @@ post:
     content: 
       'application/json':
         schema:
-          $ref: '#components/schemas/timer'
+          $ref: '../../components/schemas.yaml#/Timer'
   
   responses:
     '200':
@@ -73,10 +73,10 @@ post:
       content:
         'application/json':
           schema:
-            $ref: '#components/schemas/timer'
+            $ref: '../../components/schemas.yaml#/Timer'
 
     '500':
-      $ref: '#components/responses/500Response'
+      $ref: '../../components/responses.yaml#/500Response'
 
 
 patch:
@@ -89,5 +89,5 @@ patch:
     '200':
       description: Success
     '500':
-      $ref: '#components/responses/500Response'
+      $ref: '../../components/responses.yaml#/500Response'
 

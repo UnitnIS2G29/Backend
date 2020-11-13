@@ -11,9 +11,9 @@ get:
           schema:
             type: array
             items:
-              $ref: '#components/schemas/timer'
+              $ref: '../../components/schemas.yaml#/Timer'
     '500':
-      $ref: '#components/responses/500Response'
+      $ref: '../../components/responses.yaml#/500Response'
 
 post:
   summary: Manually add a user timer
@@ -22,19 +22,19 @@ post:
     - bearerAuth: []
   requestBody:
     description: Timer Body
-    content: 
+    content:
       'application/json':
         schema:
-          $ref: '#components/schemas/timer'
-  
+          $ref: '../../components/schemas.yaml#/Timer'
+
   responses:
     '200':
       description: Timer object
       content:
         'application/json':
           schema:
-            $ref: '#components/schemas/timer'
+            $ref: '../../components/schemas.yaml#/Timer'
 
     '500':
-      $ref: '#components/responses/500Response'
+      $ref: '../../components/responses.yaml#/500Response'
 

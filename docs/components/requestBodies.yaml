@@ -3,4 +3,11 @@ categoriesBodyRes:
   content:
     'application/json':
       schema:
-        $ref: ./schemas.yaml#/category
+        $ref: schemas.yaml#/Category
+
+usersBodyRes:
+  description: user body
+  content:
+    'application/json':
+      schema:
+        $ref: schemas.yaml#/User
