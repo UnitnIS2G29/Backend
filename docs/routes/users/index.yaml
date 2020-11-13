@@ -1,0 +1,42 @@
+get:
+  description: Returns all users
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: users response
+      content:
+        'application/json':
+          schema:
+            type: array
+            items:
+              $ref: '../../components/schemas.yaml#/User'
+    '401':
+      $ref: '../../components/responses.yaml#/401Response'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'
+
+post:
+  description: Add a new user
+  security:
+    - bearerAuth: []
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          $ref: '../../components/schemas.yaml#/User'
+  responses:
+    '201':
+      description: sussesfully added user
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/User'
+    '400':
+      $ref:  '../../components/responses.yaml#/400Response'
+    '401':
+      $ref:  '../../components/responses.yaml#/401Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'

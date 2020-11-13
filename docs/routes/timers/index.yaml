@@ -22,11 +22,11 @@ post:
     - bearerAuth: []
   requestBody:
     description: Timer Body
-    content: 
+    content:
       'application/json':
         schema:
           $ref: '../../components/schemas.yaml#/Timer'
-  
+
   responses:
     '200':
       description: Timer object

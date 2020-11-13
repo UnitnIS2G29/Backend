@@ -19,13 +19,21 @@ paths:
 
   /timers:
     $ref: routes/timers/index.yaml
-    
+
   /timers/self:
     $ref: routes/timers/self.yaml
-    
+
   /timers/{id}:
     $ref: routes/timers/by-id.yaml
 
+  /login:
+    $ref: routes/login/index.yaml
+
+  /users:
+    $ref: routes/users/index.yaml
+
+  /users/{id}:
+    $ref: routes/users/by-id.yaml
 
   /requestTimeOff:
     $ref: routes/RequestTimeOff/index.yaml

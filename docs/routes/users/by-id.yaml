@@ -1,0 +1,61 @@
+get:
+  description: Get user from id
+  security:
+    - bearerAuth: []
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '200':
+      description: User
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/User'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'
+
+put:
+  description: Update a user data
+  security:
+    - bearerAuth: []
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  requestBody:
+    $ref: '../../components/requestBodies.yaml#/usersBodyRes'
+  responses:
+    '200':
+      description: User update
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/User'
+    '400':
+      $ref: '../../components/responses.yaml#/400Response'
+    '401':
+      $ref: '../../components/responses.yaml#/401Response'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'
+
+delete:
+  description: Delete a user
+  security:
+    - bearerAuth: []
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '200':
+      description: User update
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/User'
+    '401':
+      $ref: '../../components/responses.yaml#/401Response'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'

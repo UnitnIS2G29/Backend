@@ -5,8 +5,7 @@ get:
       description: Check in successful
       content:
         'application/json':
-          schema:
-            $ref: '../../components/schemas.yaml#/timestamp'
+        
     '404':
       $ref: '../../components/responses.yaml#/404Response'
     '500':
