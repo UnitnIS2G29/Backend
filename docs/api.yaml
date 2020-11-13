@@ -26,6 +26,9 @@ paths:
   /timers/{id}:
     $ref: routes/timers/by-id.yaml
 
+  /departments:
+    $ref: routes/departments/index.yaml
+
 
 components:
   responses:
