@@ -27,6 +27,13 @@ paths:
     $ref: routes/timers/by-id.yaml
 
 
+  /requestTimeOff:
+    $ref: routes/RequestTimeOff/index.yaml
+    
+  /requestTimeOff/{id}:
+    $ref: routes/RequestTimeOff/by-id.yaml
+
+
 components:
   responses:
     $ref: components/responses.yaml
