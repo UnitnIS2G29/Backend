@@ -7,10 +7,10 @@ categoriesBodyRes:
 
 departmentsBodyRes:
   description: department body
-    content:
-      'application/json':
-        schema:
-          $ref: schemas.yaml#/Department
+  content:
+    'application/json':
+      schema:
+        $ref: schemas.yaml#/Department
 
 usersBodyRes:
   description: user body

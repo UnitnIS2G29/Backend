@@ -30,7 +30,7 @@ paths:
     $ref: routes/departments/index.yaml
 
   /departments/{id}:
-    $ref: routes/departments/by.id.yaml
+    $ref: routes/departments/by-id.yaml
 
   /deparments/{id}/employees:
     $ref: routes/departments/employees/index.yaml
