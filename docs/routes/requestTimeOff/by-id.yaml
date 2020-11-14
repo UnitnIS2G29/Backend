@@ -1,0 +1,57 @@
+get:
+  summary: 'Get request for time off from id'
+  description: 'Get request for time off from id'
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '200':
+      description: Category
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/RequestTimeOff'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'
+
+put:
+  summary: 'Modify or accept a request for time off'
+  description: 'Modify or accept a request for time off'
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          $ref: '../../components/schemas.yaml#/RequestTimeOff'
+  responses:
+    '200':
+      description: 'Modified request for time off'
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/RequestTimeOff'
+    '400':
+      $ref: '../../components/responses.yaml#/400Response'
+    '401':
+      $ref: '../../components/responses.yaml#/401Response'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'
+
+delete:
+  summary: 'Delete a request for time off'
+  description: 'Delete a request for time off'
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '200':
+      $ref: '../../components/responses.yaml#/200Response'
+    '401':
+      $ref: '../../components/responses.yaml#/401Response'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'

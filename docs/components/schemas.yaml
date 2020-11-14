@@ -50,9 +50,45 @@ User:
       type: array
       description: User tokens for different sessions
 
+RequestTimeOff:
+  type: object
+  required:
+    - id
+    - day
+    - timeBegin
+    - timeEnd
+    - reason
+    - category
+    - accepted
+  properties:
+    id:
+      type: integer
+      description: 'id of the request'
+    day:
+      type: string
+      format: date
+      description: 'Date of day off requested'
+    timeBegin:
+      type: string
+      format: date-time
+      description: 'Start of the time off requested'
+    timeEnd:
+      type: string
+      format: date-time
+      description: 'End of the time off requested'
+    reason:
+      type: string
+      description: 'Short description of the reason for the request'
+    category:
+      type: string
+      enum: [vacation, illness]
+      description: 'Category of the request: illness or vacation'
+    accepted:
+      type: boolean
+      description: 'Tracks if the request has been approved'
+
 Timestamp:
   type: integer
-
 
 Empty:
   nullable: true
