@@ -4,7 +4,7 @@ sudo: false
 jdk:
   - openjdk8
 env:
-  - GH_URL=https://raw.githubusercontent.com VALIDATOR_URL=https://validator.swagger.io/validator/debug?url FILE_TO_VALIDATE=api.yaml URL_TO_VALIDATE=$GH_URL/${TRAVIS_PULL_REQUEST_SLUG:-$TRAVIS_REPO_SLUG}/${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}/doc/$FILE_TO_VALIDATE
+  - GH_URL=https://raw.githubusercontent.com VALIDATOR_URL=https://validator.swagger.io/validator/debug?url FILE_TO_VALIDATE=api.yaml URL_TO_VALIDATE=$GH_URL/${TRAVIS_PULL_REQUEST_SLUG:-$TRAVIS_REPO_SLUG}/${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}/docs/$FILE_TO_VALIDATE
 
 script:
   # validate
