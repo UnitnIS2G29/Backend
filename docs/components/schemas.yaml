@@ -8,6 +8,18 @@ Category:
     description:
       type: string
 
+Department:
+  type: object
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    description:
+      type: string
+    employees:
+      type: array
+
 
 Timer:
   type: object

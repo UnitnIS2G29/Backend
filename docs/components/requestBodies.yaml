@@ -5,6 +5,13 @@ categoriesBodyRes:
       schema:
         $ref: schemas.yaml#/Category
 
+departmentsBodyRes:
+  description: department body
+  content:
+    'application/json':
+      schema:
+        $ref: schemas.yaml#/Department
+
 usersBodyRes:
   description: user body
   content:

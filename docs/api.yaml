@@ -26,6 +26,15 @@ paths:
   /timers/{id}:
     $ref: routes/timers/by-id.yaml
 
+  /departments:
+    $ref: routes/departments/index.yaml
+
+  /departments/{id}:
+    $ref: routes/departments/by-id.yaml
+
+  /deparments/{id}/employees:
+    $ref: routes/departments/employees/index.yaml
+
   /login:
     $ref: routes/login/index.yaml
 
