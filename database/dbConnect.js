@@ -8,9 +8,8 @@ const dbOptions = {
 };
 
 function connect() {
-    dbDebug(process.env.DBURL);
     const db = mongoose.createConnection(`${process.env.DBURL}`, dbOptions); // mongodb://localhost:27017/is2g29
-    db.on('connecting', () => dbDebug(`Connection to mongo...`));
+    db.on('connecting', () => console.log(`Connection to mongo...`));
     db.on('connected', () => {
           console.log(`Connected to mongo DB`);
         });
