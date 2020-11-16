@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+//Hardcoded for now
+process.env.DBURL= 'mongodb://localhost:27017/is2g29';
+
 const dbOptions = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -8,9 +11,9 @@ const dbOptions = {
 };
 
 function connect() {
-    dbDebug(process.env.DBURL);
+    //dbDebug(process.env.DBURL);
     const db = mongoose.createConnection(`${process.env.DBURL}`, dbOptions); // mongodb://localhost:27017/is2g29
-    db.on('connecting', () => dbDebug(`Connection to mongo...`));
+    //db.on('connecting', () => dbDebug(`Connection to mongo...`));
     db.on('connected', () => {
           console.log(`Connected to mongo DB`);
         });

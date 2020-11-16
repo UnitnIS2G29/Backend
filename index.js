@@ -1,8 +1,4 @@
-const express = require("express");
-const app = express();
-
-app.use(express.json());
-app.use(express.urlencoded());
+const app = require('./lib/app.js');
 
 const port = 3000;
 

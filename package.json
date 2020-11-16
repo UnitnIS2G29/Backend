@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "DBURL=mongodb://localhost:27017/is2g29 nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/UnitnIS2G29/Backend#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.10.14"
+    "mongoose": "^5.10.14",
+    "nodemon": "^2.0.6"
   }
 }
