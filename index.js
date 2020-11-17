@@ -1,8 +1,11 @@
 const express = require("express");
 const app = express();
+const morgan = require('morgan');
 
 const usersRoute = require('./routes/users');
 const loginRoute = require('./routes/login');
+
+app.use(morgan('dev'));
 
 app.use(express.json());
 app.use(express.urlencoded());
