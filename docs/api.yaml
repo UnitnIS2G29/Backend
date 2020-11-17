@@ -43,11 +43,12 @@ paths:
 
   /users/{id}:
     $ref: routes/users/by-id.yaml
+    
   /requestTimeOff:
-    $ref: routes/RequestTimeOff/index.yaml
+    $ref: routes/requestTimeOff/index.yaml
     
   /requestTimeOff/{id}:
-    $ref: routes/RequestTimeOff/by-id.yaml
+    $ref: routes/requestTimeOff/by-id.yaml
 
 components:
   responses:
