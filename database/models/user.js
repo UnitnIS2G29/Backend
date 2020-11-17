@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const JWT = require('jsonwebtoken');
 const db = require('../dbConnect');
 
 const UserSchema = new mongoose.Schema({
@@ -26,6 +27,14 @@ const UserSchema = new mongoose.Schema({
     }
   ]
 })
+
+UserSchema.methods.generateToken = async function() {
+  const user = this;
+  const token = JWT.sign({id: user._id, role: user.role}, process.env.AUTHKEY);
+  user.tokens = user.tokens.concat({token, date: new Date() });
+  await user.save();
+  return token;
+}
 
 const User = db.model('User', UserSchema);
 
