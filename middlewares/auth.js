@@ -1,11 +1,13 @@
 const JWT = require('jsonwebtoken');
 const User = require('../database/models/user');
 
+// Middleware for authentication
+
 const auth = async (req, res, next) => {
   try {
     const token = req.header("Authorization").replace('Bearer ', '');
-    const data = JWT.verify(token, process.env.AUTHKEY);
-    const user = await User.findOne({_id: data.id, 'tokens.token': token});
+    const data = JWT.verify(token, process.env.AUTHKEY);                    // Decrypt the token received
+    const user = await User.findOne({_id: data.id, 'tokens.token': token}); // Find user with id find in token and active token
 
     if(!user)
       res.status(401).send(new Error("Not Authorized User"));

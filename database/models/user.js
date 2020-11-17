@@ -28,6 +28,8 @@ const UserSchema = new mongoose.Schema({
   ]
 })
 
+// Generate token with role and id of user
+
 UserSchema.methods.generateToken = async function() {
   const user = this;
   const token = JWT.sign({id: user._id, role: user.role}, process.env.AUTHKEY);

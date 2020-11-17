@@ -8,6 +8,8 @@ const User = require('../database/models/user');
 const auth = require('../middlewares/auth');
 
 
+// Retrieve the information of the logged user
+
 router.get('/', auth, (req, res) => {
   try {
     res.send(req.user);
@@ -15,6 +17,8 @@ router.get('/', auth, (req, res) => {
     res.status(500).send(e)
   }
 })
+
+// Login endpoint
 
 router.post('/', [
     check('email').not().isEmpty(),
