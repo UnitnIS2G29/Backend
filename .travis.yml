@@ -8,7 +8,7 @@ install:
 script:
   # validate apis
   - echo "Validating $PATH_TO_VALIDATE/API_PATH:"
-  - API_VALIDATION_OUTPUT=`swagger-cli validate $PATH_TO_VALIDATE/API_PATH`
+  - API_VALIDATION_OUTPUT=`swagger-cli validate $PATH_TO_VALIDATE/$API_PATH`
   - API_VALIDATION_STATUS=$?
 
   - echo $API_VALIDATION_OUTPUT
