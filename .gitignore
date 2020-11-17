@@ -1,7 +1,8 @@
 node_modules/
 package-*
-
-
 data/*
+
+
+#   PERSONAL    #
 Dockerfile
 docker-compose.yml
