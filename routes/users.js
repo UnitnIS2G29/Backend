@@ -1,7 +1,9 @@
 const express = require('express');
-const { check, validationResult } = require('express-validator');
+const { check, body, validationResult } = require('express-validator');
 const _ = require('lodash');
 const router = express.Router();
+
+const { Roles } = require('../utils/roles');
 
 const User = require("../database/models/user");
 
@@ -24,6 +26,7 @@ router.post('/',
   [
     check('name').not().isEmpty(),
     check('email').isEmail().normalizeEmail(),
+    check('role').isIn(Roles),
     check('password')
       .not().isEmpty()
       .isLength({min: 5})
@@ -37,7 +40,7 @@ router.post('/',
     }
 
     let user = new User(
-      _.pick(req.body, ['name','email','password'])
+      _.pick(req.body, ['name','role', 'email','password'])
     );
 
     user = await user.save();
@@ -48,8 +51,6 @@ router.post('/',
     res.status(500).send(e);
   }
 })
-
-// TODO: Testing
 
 router.get('/:id', async (req, res) => {
   try {
@@ -65,19 +66,33 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-router.put('/:id', async (req, res) => {
+router.put('/:id',
+  [
+    body('email').isEmail().normalizeEmail(),
+    body('role').isIn(Roles),
+    body('password')
+      .isLength({min: 5})
+  ],
+  async (req, res) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   try {
-    const user = await User.findById(req.params.id);
+    let user = await User.findById(req.params.id);
 
     if(!user) {
       res.status(400).send(new Error("Invalid Id"));
     }
 
-    user = _.merge(user, _.pick(req.body, ["name", "email", "password"])); // TODO: Check syntax
+    let bodyuser = _.pick(req.body, ["name", "role", "email", "password"]);
+    user = _.merge(user, bodyuser);
     user = await user.save();
 
     res.send(user);
   } catch (e) {
+    console.log(e);
     res.status(500).send(e);
   }
 })
