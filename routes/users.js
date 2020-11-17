@@ -4,10 +4,11 @@ const _ = require('lodash');
 const router = express.Router();
 
 const { Roles } = require('../utils/roles');
+const auth = require('../middlewares/auth');
 
 const User = require("../database/models/user");
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
   try {
     const users = await User.find();
 
@@ -18,6 +19,7 @@ router.get('/', async (req, res) => {
     }
 
   } catch (e) {
+    console.log(e);
     res.status(500).send(e);
   }
 })
