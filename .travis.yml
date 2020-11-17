@@ -1,19 +1,16 @@
-language: java
-dist: trusty
-sudo: false
-jdk:
-  - openjdk8
+language: node_js
+node_js:
+  - lts/*
 env:
-  - GH_URL=https://raw.githubusercontent.com VALIDATOR_URL=https://validator.swagger.io/validator/debug?url FILE_TO_VALIDATE=api.yaml URL_TO_VALIDATE=$GH_URL/${TRAVIS_PULL_REQUEST_SLUG:-$TRAVIS_REPO_SLUG}/${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}/docs/$FILE_TO_VALIDATE
-
+  - GH_URL=https://raw.githubusercontent.com PATH_TO_VALIDATE=$GH_URL/${TRAVIS_PULL_REQUEST_SLUG:-$TRAVIS_REPO_SLUG}/${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH} API_PATH=docs/api.yaml
+install:
+  npm install -g swagger-cli
 script:
-  # validate
-  - echo "Validating $URL_TO_VALIDATE:"
-  - VALIDATION_OUTPUT=`curl -sS "$VALIDATOR_URL=$URL_TO_VALIDATE"`
+  # validate apis
+  - echo "Validating $PATH_TO_VALIDATE/API_PATH:"
+  - API_VALIDATION_OUTPUT=`swagger-cli validate $PATH_TO_VALIDATE/API_PATH`
+  - API_VALIDATION_STATUS=$?
 
-  # print validation errors
-  - echo $VALIDATION_OUTPUT
+  - echo $API_VALIDATION_OUTPUT
 
-  # check if the validation output ignoring warnings is an empty array
-  - VALIDATION_ERROR_COUNT=`echo "$VALIDATION_OUTPUT" |jq -c '.schemaValidationMessages // [] | map(select(.level != "warning"))' |jq length`
-  - test "$VALIDATION_ERROR_COUNT" == 0
+  - test "$API_VALIDATION_STATUS" == 0
