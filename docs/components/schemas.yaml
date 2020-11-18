@@ -25,7 +25,7 @@ Timer:
   type: object
   properties:
     id:
-      type: integer
+      type: string
       description: Auto-incremental id
 
     started_at:
@@ -74,7 +74,7 @@ RequestTimeOff:
     - accepted
   properties:
     id:
-      type: integer
+      type: string
       description: 'id of the request'
     day:
       type: string
