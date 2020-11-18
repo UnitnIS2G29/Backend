@@ -41,7 +41,7 @@ router.post('/', [
       console.log(user);
 
       if(user.password == req.body.password) {
-        const token = user.generateToken();
+        const token = await user.generateToken();
         res.status(200).send({user, token});
       }
 
