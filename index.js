@@ -1,5 +1,12 @@
 const express = require("express");
 const app = express();
+const morgan = require('morgan');
+
+const usersRoute = require('./routes/users');
+const loginRoute = require('./routes/login');
+const categoriesRoute = require('./routes/categories');
+
+app.use(morgan('dev'));
 
 const timersRoute = require('./routes/timers');
 
@@ -7,6 +14,9 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 app.use('/timers', timersRoute);
+app.use('/users', usersRoute);
+app.use('/login', loginRoute);
+app.use('/categories', categoriesRoute);
 
 const port = 3000;
 
