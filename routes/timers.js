@@ -64,6 +64,7 @@ router.post('/', [
         data.stopped_at = new Date;
         data.save();
       });
+      timer.stopped_at = null;
     }
 
     timer.description = req.body.description;
@@ -137,6 +138,10 @@ router.put('/self',[auth()], async (req, res) => {
   }
 });
 
+/**
+ * DELETE THE CURRENTLY RUNNING TIMER
+ * Deletes the currently running timer (if exists).
+ */
 router.delete('/self',[auth()], async(req, res) => {
   try {
     let timer = await Timer.findOne({
@@ -152,9 +157,13 @@ router.delete('/self',[auth()], async(req, res) => {
   }
 });
 
+/**
+ * STARTS A NEW RUNNING TIMER
+ * Starts a new timer stopping the currently running timer (if exists).
+ */
 router.post('/self',[auth()], async (req, res) => {
   try {
-    let timer = Timer.create();
+    let timer = new Timer({stopped_at: null,user: req.user});
 
     if (req.body.started_at) {
       timer.started_at = new Date(req.body.started_at);
@@ -186,10 +195,16 @@ router.post('/self',[auth()], async (req, res) => {
 
     res.status(200).send(timer);
   } catch (e) {
+    console.log(e);
     res.status(500).send(e);
   }
 });
 
+
+/**
+ * STOPS THE NEW RUNNING TIMER
+ * Stops the currently running timer
+ */
 router.patch('/self',[auth()], async (req, res) => {
   try {
     let timer = await Timer.findOne({
@@ -209,11 +224,15 @@ router.patch('/self',[auth()], async (req, res) => {
   }
 });
 
+/**
+ * GET A TIMER BY ID
+ * Gets the timer by its id
+ */
 router.get('/:id',[auth()], async (req, res) => {
   try {
-    const timer = await Timer.findById(req.params);
-    if(timer && timer.user == req.user){
-      res.status(200).send(timer); 
+    const timer = await Timer.findById(req.params.id);
+    if(timer && timer.user == req.user.id){
+      return res.status(200).send(timer); 
     }
     return res.status(400).send(new Error("TIMER ID NOT FOUND"));
   } catch (e) {
@@ -221,10 +240,14 @@ router.get('/:id',[auth()], async (req, res) => {
   }
 });
 
+/**
+ * EDIT A TIMER BY ID
+ * Edits a timer by its id
+ */
 router.put('/:id',[auth()], async (req, res) => {
   try {
-    const timer = await Timer.findById(req.params);
-    if(timer && timer.user == req.user){
+    const timer = await Timer.findById(req.params.id);
+    if(timer && timer.user == req.user.id){
 
       if (req.body.started_at) {
         timer.started_at = new Date(req.body.started_at);
@@ -246,7 +269,7 @@ router.put('/:id',[auth()], async (req, res) => {
         timer.category = category;
       }
   
-      res.status(200).send(timer); 
+      return res.status(200).send(timer); 
     }
     return res.status(400).send(new Error("TIMER ID NOT FOUND"));
   } catch (e) {
@@ -254,16 +277,20 @@ router.put('/:id',[auth()], async (req, res) => {
   }
 });
 
+/**
+ * DELETES A TIMER BY ID
+ * Deletes a timer by id
+ */
 router.delete('/:id',[auth()], async (req, res) => {
   try {
-    const timer = await Timer.findById(req.params);
-    if(timer && timer.user == req.user){
+    const timer = await Timer.findById(req.params.id);
+    if(timer && timer.user == req.user.id){
       timer.delete();
-      res.status(200).send(timer); 
+      return res.status(200).send(timer); 
     }
     return res.status(400).send(new Error("TIMER ID NOT FOUND"));
   } catch (e) {
-    res.status(500).send(e);
+    return res.status(500).send(e);
   }
 });
 
