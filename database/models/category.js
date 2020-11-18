@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const db = require('../database/dbConnect');
+const db = require('../dbConnect');
 
 const categorySchema = new mongoose.Schema({
   name: String,
