@@ -15,7 +15,7 @@ const Category = require("../database/models/category");
 
 router.get('/',[auth()], async (req, res) => {
   try {
-    const timers = await Timer.$where('User.id').equals(req.user.id);
+    const timers = await Timer.where('User.id').equals(req.user.id);
     res.status(200).send(timers);
   } catch (e) {
     res.status(500).send(e);
@@ -51,7 +51,7 @@ router.post('/', [
     }
 
     if (!timer.stopped_at) {
-      const timers = await Timer.$where('User.id').equals(req.user.id).$where('stopped_at').equals(null);
+      const timers = await Timer.where('User.id').equals(req.user.id).where('stopped_at').equals(null);
       timers.forEach((data) => {
         data.stopped_at = new Date;
       });
@@ -64,6 +64,7 @@ router.post('/', [
     timer.status(201).send(timer);
 
   } catch (e) {
+    console.log(e);
     res.status(500).send(e);
   }
 });
@@ -141,7 +142,7 @@ router.post('/self',[auth()], async (req, res) => {
     if (req.body.stopped_at) {
       timer.stopped_at = new Date(req.body.stopped_at);
     }else{
-      const timers = await Timer.$where('User.id').equals(req.user.id).$where('stopped_at').equals(null);
+      const timers = await Timer.where('User.id').equals(req.user.id).where('stopped_at').equals(null);
       timers.forEach((data) => {
         data.stopped_at = new Date;
       });
