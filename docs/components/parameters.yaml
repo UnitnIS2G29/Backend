@@ -4,5 +4,5 @@ id:
   description: resource id
   required: true
   schema:
-    type: integer
+    type: string
 
