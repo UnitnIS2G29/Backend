@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const morgan = require('morgan');
 
@@ -7,6 +8,7 @@ const loginRoute = require('./routes/login');
 const categoriesRoute = require('./routes/categories');
 
 app.use(morgan('dev'));
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded());
