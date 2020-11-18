@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 //Import schema
-const RequestTimeOff = require('../models/requestTimeOff');
+const RequestTimeOff = require('../database/models/requestTimeOff');
 
 //Requests
 router.get('/', (req, res, next) => {
