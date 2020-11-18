@@ -8,7 +8,7 @@ const auth = require('../middlewares/auth');
 
 const User = require("../database/models/user");
 
-router.get('/', auth, async (req, res) => {
+router.get('/', auth("admin"), async (req, res) => {
   try {
     const users = await User.find();
 
@@ -26,6 +26,7 @@ router.get('/', auth, async (req, res) => {
 
 router.post('/',
   [
+    auth("admin"),
     check('name').not().isEmpty(),
     check('email').isEmail().normalizeEmail(),
     check('role').isIn(Roles),
@@ -54,7 +55,7 @@ router.post('/',
   }
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', auth("supervisor"), async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
 
@@ -70,6 +71,7 @@ router.get('/:id', async (req, res) => {
 
 router.put('/:id',
   [
+    auth("supervisor"),
     body('email').isEmail().normalizeEmail(),
     body('role').isIn(Roles),
     body('password')
@@ -99,7 +101,7 @@ router.put('/:id',
   }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', auth("admin"), async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);
 

@@ -10,7 +10,7 @@ const auth = require('../middlewares/auth');
 
 // Retrieve the information of the logged user
 
-router.get('/', auth, (req, res) => {
+router.get('/', auth(), (req, res) => {
   try {
     res.send(req.user);
   } catch (e) {
