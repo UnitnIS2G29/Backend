@@ -13,15 +13,23 @@ const User = require("../database/models/user");
 const Category = require("../database/models/category");
 
 
+/**
+ * GET TIMERS
+ * Returns full list of timers associated to the currently logged in user
+ */
 router.get('/',[auth()], async (req, res) => {
   try {
-    const timers = await Timer.where('User.id').equals(req.user.id);
+    const timers = await Timer.find({user: req.user});
     res.status(200).send(timers);
   } catch (e) {
     res.status(500).send(e);
   }
 });
 
+/**
+ * POST TIMERS
+ * Creates a new timer entry for the currently logged in user
+ */
 router.post('/', [
   check('started_at').notEmpty(),
   check('stopped_at').exists(),
@@ -42,8 +50,8 @@ router.post('/', [
 
     timer.user = req.user;
 
-    if (req.body.category && req.body.category.id) {
-      let category = Category.findById(req.body.category.id);
+    if (req.body.category && req.body.category) {
+      let category = Category.findById(req.body.category);
       if (!category) {
         return res.status(400).send(new Error("INVALID CATEGORY-ID PROVIDED"));
       }
@@ -51,9 +59,10 @@ router.post('/', [
     }
 
     if (!timer.stopped_at) {
-      const timers = await Timer.where('User.id').equals(req.user.id).where('stopped_at').equals(null);
+      const timers = await Timer.find({stopped_at: null,user: req.user});
       timers.forEach((data) => {
         data.stopped_at = new Date;
+        data.save();
       });
     }
 
@@ -61,7 +70,7 @@ router.post('/', [
 
     timer = await timer.save();
 
-    timer.status(201).send(timer);
+    res.status(201).send(timer);
 
   } catch (e) {
     console.log(e);
@@ -69,10 +78,14 @@ router.post('/', [
   }
 });
 
+/**
+ * GET CURRENTLY RUNNING TIMER
+ * Gets the currently running timer (if exists).
+ */
 router.get('/self',[auth()], async (req, res) => {
   try {
     let timer = await Timer.findOne({
-      'User.id': req.user.id,
+      'user': req.user,
       'stopped_at': null
     });
     res.status(200).send(timer);
@@ -81,12 +94,20 @@ router.get('/self',[auth()], async (req, res) => {
   }
 });
 
+/**
+ * EDIT THE CURRENTLY RUNNING TIMER
+ * Edits the currently running timer (if exists).
+ */
 router.put('/self',[auth()], async (req, res) => {
   try {
     let timer = await Timer.findOne({
-      'User.id': req.user.id,
+      'user': req.user,
       'stopped_at': null
     });
+
+    if(!timer){
+      res.status(404).send("NO RUNNING TIMER");
+    }
 
     if (req.body.started_at) {
       timer.started_at = new Date(req.body.started_at);
@@ -100,8 +121,8 @@ router.put('/self',[auth()], async (req, res) => {
       timer.description = req.body.description;
     }
 
-    if (req.body.category && req.body.category.id) {
-      let category = Category.findById(req.body.category.id);
+    if (req.body.category && req.body.category) {
+      let category = Category.findById(req.body.category);
       if (!category) {
         return res.status(400).send(new Error("INVALID CATEGORY-ID PROVIDED"));
       }
@@ -119,7 +140,7 @@ router.put('/self',[auth()], async (req, res) => {
 router.delete('/self',[auth()], async(req, res) => {
   try {
     let timer = await Timer.findOne({
-      'User.id': req.user.id,
+      'user': req.user,
       'stopped_at': null
     });
     if(timer){
@@ -142,9 +163,10 @@ router.post('/self',[auth()], async (req, res) => {
     if (req.body.stopped_at) {
       timer.stopped_at = new Date(req.body.stopped_at);
     }else{
-      const timers = await Timer.where('User.id').equals(req.user.id).where('stopped_at').equals(null);
+      const timers = await Timer.find({stopped_at: null,user: req.user});
       timers.forEach((data) => {
         data.stopped_at = new Date;
+        data.save();
       });
     }
 
@@ -152,8 +174,8 @@ router.post('/self',[auth()], async (req, res) => {
       timer.description = req.body.description;
     }
 
-    if (req.body.category && req.body.category.id) {
-      let category = Category.findById(req.body.category.id);
+    if (req.body.category && req.body.category) {
+      let category = Category.findById(req.body.category);
       if (!category) {
         return res.status(400).send(new Error("INVALID CATEGORY-ID PROVIDED"));
       }
@@ -171,7 +193,7 @@ router.post('/self',[auth()], async (req, res) => {
 router.patch('/self',[auth()], async (req, res) => {
   try {
     let timer = await Timer.findOne({
-      'User.id': req.user.id,
+      'user': req.user,
       'stopped_at': null
     });
 
@@ -189,8 +211,8 @@ router.patch('/self',[auth()], async (req, res) => {
 
 router.get('/:id',[auth()], async (req, res) => {
   try {
-    const timer = await Timer.findById(req.params.id);
-    if(timer && timer.user.id == req.user.id){
+    const timer = await Timer.findById(req.params);
+    if(timer && timer.user == req.user){
       res.status(200).send(timer); 
     }
     return res.status(400).send(new Error("TIMER ID NOT FOUND"));
@@ -201,8 +223,8 @@ router.get('/:id',[auth()], async (req, res) => {
 
 router.put('/:id',[auth()], async (req, res) => {
   try {
-    const timer = await Timer.findById(req.params.id);
-    if(timer && timer.user.id == req.user.id){
+    const timer = await Timer.findById(req.params);
+    if(timer && timer.user == req.user){
 
       if (req.body.started_at) {
         timer.started_at = new Date(req.body.started_at);
@@ -216,8 +238,8 @@ router.put('/:id',[auth()], async (req, res) => {
         timer.description = req.body.description;
       }
   
-      if (req.body.category && req.body.category.id) {
-        let category = Category.findById(req.body.category.id);
+      if (req.body.category && req.body.category) {
+        let category = Category.findById(req.body.category);
         if (!category) {
           return res.status(400).send(new Error("INVALID CATEGORY-ID PROVIDED"));
         }
@@ -234,8 +256,8 @@ router.put('/:id',[auth()], async (req, res) => {
 
 router.delete('/:id',[auth()], async (req, res) => {
   try {
-    const timer = await Timer.findById(req.params.id);
-    if(timer && timer.user.id == req.user.id){
+    const timer = await Timer.findById(req.params);
+    if(timer && timer.user == req.user){
       timer.delete();
       res.status(200).send(timer); 
     }
