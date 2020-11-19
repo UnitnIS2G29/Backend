@@ -33,7 +33,7 @@ router.post('/', [
     try {
       console.log("Retrieving User");
       console.log(req.body);
-      const user = await User.findOne({email: req.body.email,password: req.body.password}).exec();
+      const user = await User.findOne({email: req.body.email}).exec();
       console.log(user);
       if(!user) {
         res.status(404).send(new Error("User not found"));
