@@ -2,12 +2,23 @@ const mongoose = require('mongoose');
 const db = require('../dbConnect');
 
 const requestTimeOffSChema = mongoose.Schema({
-    //_id: mongoose.Schema.Types.ObjectId,
-    day: Date,
-    timeBegin: Date,
-    timeEnd: Date,
+    day: {
+        type: Date,
+        required: true
+    },
+    timeBegin: {
+        type: Date,
+        required: true
+    },
+    timeEnd: {
+        type: Date,
+        required: true
+    },
     reason: String,
-    category: String,
+    category: {
+        type: String,
+        required:true
+    },
     accepted: Boolean 
 })
 
