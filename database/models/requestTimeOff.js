@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const db = require('../dbConnect');
 
 const requestTimeOffSChema = mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    },
     day: {
         type: Date,
         required: true

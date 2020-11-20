@@ -8,9 +8,9 @@ const { RequestTypes } = require('../utils/requestTypes');
 const router = express.Router();
 
 
-//REQUESTS
+//GET ALL REQUESTS FOR TIME OFF
 
-router.get('/', auth(), async (req, res) => {
+router.get('/', auth("supervisor"), async (req, res) => {
     try {
       const requestTimeOff = await RequestTimeOff.find();
       res.send(requestTimeOff);
@@ -20,14 +20,16 @@ router.get('/', auth(), async (req, res) => {
     }
 });
 
+//CREATE A REQUEST FOR TIME OFF FOR THE CURRENTLY LOGGED IN USER
+
 router.post('/', [
     auth(),
     check('day').isRFC3339(),
     check('timeBegin').isRFC3339(),
     check('timeEnd').isRFC3339(),
-    check('reason').isString(),
+    //check('reason').isString(),
     check('category').isIn(RequestTypes),
-    check('accepted').isBoolean()
+    //check('accepted').isBoolean()
     ],
     async (req, res) => {
     const errors = validationResult(req);
@@ -38,6 +40,7 @@ router.post('/', [
     }
     try {
         let requestTimeOff = new RequestTimeOff(_.pick(req.body, ["day", "timeBegin","timeEnd","reason","category","accepted"]));
+        requestTimeOff.user = req.user;
         requestTimeOff = await requestTimeOff.save();
 
         res.status(201).json({
@@ -50,8 +53,21 @@ router.post('/', [
     }
 });
 
+//GET ALL REQUESTS FOR TIME OFF OF THE CURRENTLY LOGGED IN USER
 
-//REQUESTS BY Id
+router.get('/self', auth(), async (req, res) => {
+    try {
+      const requestTimeOff = await RequestTimeOff.find({
+        'user': req.user
+      });
+      res.send(requestTimeOff);
+    } catch (e) {
+      console.log(e);
+      res.status(500).send({ error: e.message });
+    }
+});
+
+//GET A REQUEST FOR TIME OFF BY ID
 
 router.get('/:requestTimeOffId', auth(), async (req, res) => {
     try {
@@ -63,7 +79,8 @@ router.get('/:requestTimeOffId', auth(), async (req, res) => {
     }
 });
 
-//approve requests
+//APPROVE OR DENY A REQUEST FOR TIME OFF BY ID
+
 router.put('/:requestTimeOffId',  [
     auth("supervisor"),
     check('accepted').isBoolean()
@@ -83,6 +100,9 @@ router.put('/:requestTimeOffId',  [
     }
 });
 
+
+//DELETE A REQUEST FOR TIME OFF BY ID
+ 
 router.delete('/:requestTimeOffId', auth("admin"), async (req, res) => {
     try {
         let requestTimeOff = await RequestTimeOff.findByIdAndDelete(req.params.requestTimeOffId);
@@ -92,6 +112,5 @@ router.delete('/:requestTimeOffId', auth("admin"), async (req, res) => {
         res.status(500).send({ error: e.message });
     }
 });
-  
 
 module.exports = router;
