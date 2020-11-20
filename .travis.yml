@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - lts/*
+services:
+  - mongodb
 env:
   - GH_URL=https://raw.githubusercontent.com PATH_TO_VALIDATE=$GH_URL/${TRAVIS_PULL_REQUEST_SLUG:-$TRAVIS_REPO_SLUG}/${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH} API_PATH=docs/api.yaml
 install:
