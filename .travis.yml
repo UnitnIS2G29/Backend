@@ -12,3 +12,6 @@ script:
 
   - echo $API_VALIDATION_OUTPUT
 
+  # run node tests
+  - npm run test
+
