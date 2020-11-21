@@ -27,6 +27,18 @@ router.get('/:id', auth(), async (req, res) => {
     }
 });
 
+router.get('/:id/employees', auth(), async (req, res) => {
+    try {
+        const department = await Department.findById(req.params.id);
+        console.log(department)
+        console.log(department.employees)
+        res.send(department);
+    } catch (e) {
+        console.log(e);
+        res.status(500).send({ error: e.message });
+    }
+});
+
 router.post('/', [
     auth("supervisor"),
     check('name').notEmpty().isString(),
