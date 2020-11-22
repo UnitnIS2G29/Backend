@@ -27,9 +27,9 @@ router.post('/', [
     check('day').isRFC3339(),
     check('timeBegin').isRFC3339(),
     check('timeEnd').isRFC3339(),
-    //check('reason').isString(),
+    check('reason').optional({nullable:true}).isString(),
     check('category').isIn(RequestTypes),
-    //check('accepted').isBoolean()
+    check('accepted').optional({nullable:true}).isBoolean()
     ],
     async (req, res) => {
     const errors = validationResult(req);
