@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const db = require('../dbConnect');
 
 const requestTimeOffSChema = mongoose.Schema({
     user: {
@@ -26,4 +25,4 @@ const requestTimeOffSChema = mongoose.Schema({
     accepted: Boolean 
 })
 
-module.exports = db.model('RequestTimeOff', requestTimeOffSChema)
+module.exports = mongoose.model('RequestTimeOff', requestTimeOffSChema)
