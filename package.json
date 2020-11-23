@@ -8,7 +8,9 @@
   },
   "scripts": {
     "dev": "DBURL=mongodb://localhost:27017/is2g29 AUTHKEY=12345678 nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:auth": "DISABLEAUTH=true DBURL=mongodb://localhost:27017/is2g29 AUTHKEY=12345678 nodemon index.js",
+    "test": "DBURL=mongodb://localhost:27017/is2g29testing_ jest",
+    "test:watch": "DBURL=mongodb://localhost:27017/is2g29testing_ AUTHKEY=12345678 jest --watch --detectOpenHandles"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   },
   "homepage": "https://github.com/UnitnIS2G29/Backend#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-validator": "^6.6.1",
     "nodemon":"^2.0.6",
@@ -28,5 +31,9 @@
     "lodash": "^4.17.20",
     "mongoose": "^5.10.14",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "supertest": "^6.0.1"
   }
 }
