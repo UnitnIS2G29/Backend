@@ -19,7 +19,7 @@ const Category = require("../database/models/category");
  */
 router.get('/',[auth()], async (req, res) => {
   try {
-    const timers = await Timer.find({user: req.user}).sort([['stopped_at',-1]]).populate('category');
+    const timers = await Timer.find({user: req.user}).sort([['started_at',-1]]).populate('category');
     return res.status(200).send(timers);
   } catch (e) {
     console.log(e);
