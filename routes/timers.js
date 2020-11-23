@@ -161,6 +161,8 @@ router.post('/self',[auth()], async (req, res) => {
 
     if (req.body.started_at) {
       timer.started_at = new Date(req.body.started_at);
+    }else{
+      timer.started_at = new Date();
     }
 
     if (req.body.stopped_at) {
@@ -263,6 +265,8 @@ router.put('/:id',[auth()], async (req, res) => {
         timer.category = category;
       }
   
+      timer.save();
+
       return res.status(200).send(timer); 
     }
     return res.status(400).send(new Error("TIMER ID NOT FOUND"));
