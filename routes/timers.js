@@ -19,10 +19,11 @@ const Category = require("../database/models/category");
  */
 router.get('/',[auth()], async (req, res) => {
   try {
-    const timers = await Timer.find({user: req.user});
-    res.status(200).send(timers);
+    const timers = await Timer.find({user: req.user}).sort([['stopped_at',-1]]).populate('category');
+    return res.status(200).send(timers);
   } catch (e) {
-    res.status(500).send(e);
+    console.log(e);
+    return res.status(500).send(e);
   }
 });
 
@@ -45,21 +46,14 @@ router.post('/', [
     }
 
     let timer = new Timer(
-      _.pick(req.body, ['started_at', 'stopped_at'])
+      _.pick(req.body, ['started_at', 'stopped_at','category'])
     );
 
     timer.user = req.user;
 
-    if (req.body.category && req.body.category) {
-      let category = Category.findById(req.body.category);
-      if (!category) {
-        return res.status(400).send(new Error("INVALID CATEGORY-ID PROVIDED"));
-      }
-      timer.category = category;
-    }
 
     if (!timer.stopped_at) {
-      const timers = await Timer.find({stopped_at: null,user: req.user});
+      const timers = await Timer.find({stopped_at: null,user: req.user}).populate('category');;
       timers.forEach((data) => {
         data.stopped_at = new Date;
         data.save();
@@ -71,11 +65,11 @@ router.post('/', [
 
     timer = await timer.save();
 
-    res.status(201).send(timer);
+    return res.status(201).send(timer);
 
   } catch (e) {
     console.log(e);
-    res.status(500).send(e);
+    return res.status(500).send(e);
   }
 });
 
@@ -88,10 +82,10 @@ router.get('/self',[auth()], async (req, res) => {
     let timer = await Timer.findOne({
       'user': req.user,
       'stopped_at': null
-    });
-    res.status(200).send(timer);
+    }).populate('category');;
+    return res.status(200).send(timer);
   } catch (e) {
-    res.status(500).send(e);
+    return res.status(500).send(e);
   }
 });
 
@@ -104,10 +98,10 @@ router.put('/self',[auth()], async (req, res) => {
     let timer = await Timer.findOne({
       'user': req.user,
       'stopped_at': null
-    });
+    }).populate('category');;
 
     if(!timer){
-      res.status(404).send("NO RUNNING TIMER");
+      return res.status(404).send("NO RUNNING TIMER");
     }
 
     if (req.body.started_at) {
@@ -123,18 +117,18 @@ router.put('/self',[auth()], async (req, res) => {
     }
 
     if (req.body.category && req.body.category) {
-      let category = Category.findById(req.body.category);
+      let category = await Category.findById(req.body.category._id);
       if (!category) {
-        return res.status(400).send(new Error("INVALID CATEGORY-ID PROVIDED"));
+        return res.status(400).send(new Error("INVALID CATEGORY PROVIDED"));
       }
       timer.category = category;
     }
 
     timer.save();
 
-    res.status(200).send(timer);
+    return res.status(200).send(timer);
   } catch (e) {
-    res.status(500).send(e);
+    return res.status(500).send(e);
   }
 });
 
@@ -147,13 +141,13 @@ router.delete('/self',[auth()], async(req, res) => {
     let timer = await Timer.findOne({
       'user': req.user,
       'stopped_at': null
-    });
+    }).populate('category');;
     if(timer){
       timer.delete();
     }
-    res.status(200).send(timer);
+    return res.status(200).send(timer);
   }catch(e){
-    res.status(500).send(e);
+    return res.status(500).send(e);
   }
 });
 
@@ -172,7 +166,7 @@ router.post('/self',[auth()], async (req, res) => {
     if (req.body.stopped_at) {
       timer.stopped_at = new Date(req.body.stopped_at);
     }else{
-      const timers = await Timer.find({stopped_at: null,user: req.user});
+      const timers = await Timer.find({stopped_at: null,user: req.user}).populate('category');;
       timers.forEach((data) => {
         data.stopped_at = new Date;
         data.save();
@@ -184,7 +178,7 @@ router.post('/self',[auth()], async (req, res) => {
     }
 
     if (req.body.category && req.body.category) {
-      let category = Category.findById(req.body.category);
+      let category = await Category.findById(req.body.category._id);
       if (!category) {
         return res.status(400).send(new Error("INVALID CATEGORY-ID PROVIDED"));
       }
@@ -193,10 +187,10 @@ router.post('/self',[auth()], async (req, res) => {
 
     timer.save();
 
-    res.status(200).send(timer);
+    return res.status(200).send(timer);
   } catch (e) {
     console.log(e);
-    res.status(500).send(e);
+    return res.status(500).send(e);
   }
 });
 
@@ -210,17 +204,17 @@ router.patch('/self',[auth()], async (req, res) => {
     let timer = await Timer.findOne({
       'user': req.user,
       'stopped_at': null
-    });
+    }).populate('category');;
 
     if(timer){
       timer.stopped_at = new Date();
       timer.save();
-      res.status(200).send(timer);
+      return res.status(200).send(timer);
     }else{
       return res.status(400).send(new Error("TIMER NOT FOUND"));
     }
   } catch (e) {
-    res.status(500).send(e);
+    return res.status(500).send(e);
   }
 });
 
@@ -236,7 +230,7 @@ router.get('/:id',[auth()], async (req, res) => {
     }
     return res.status(400).send(new Error("TIMER ID NOT FOUND"));
   } catch (e) {
-    res.status(500).send(e);
+    return res.status(500).send(e);
   }
 });
 
@@ -262,7 +256,7 @@ router.put('/:id',[auth()], async (req, res) => {
       }
   
       if (req.body.category && req.body.category) {
-        let category = Category.findById(req.body.category);
+        let category = await Category.findById(req.body.category._id);
         if (!category) {
           return res.status(400).send(new Error("INVALID CATEGORY-ID PROVIDED"));
         }
@@ -273,7 +267,7 @@ router.put('/:id',[auth()], async (req, res) => {
     }
     return res.status(400).send(new Error("TIMER ID NOT FOUND"));
   } catch (e) {
-    res.status(500).send(e);
+    return res.status(500).send(e);
   }
 });
 

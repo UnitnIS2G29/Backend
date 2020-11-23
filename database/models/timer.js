@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const db = require('../dbConnect');
 
 const TimerSchema = new mongoose.Schema({
     user: {
@@ -23,6 +22,6 @@ const TimerSchema = new mongoose.Schema({
     }
 });
 
-const Timer = db.model('Timer', TimerSchema);
+const Timer = mongoose.model('Timer', TimerSchema);
 
 module.exports = Timer;
