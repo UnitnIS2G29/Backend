@@ -11,4 +11,3 @@ mongoose.connect(process.env.DBURL, dbOptions).then(() => {
     console.log(`Server listening on port ${port}`);
   });
 })
-
