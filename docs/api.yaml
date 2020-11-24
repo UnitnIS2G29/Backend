@@ -35,18 +35,18 @@ paths:
   /deparments/{id}/employees:
     $ref: routes/departments/employees/index.yaml
 
-  /login:
-    $ref: routes/login/index.yaml
+  /authentications:
+    $ref: routes/authentications/index.yaml
 
   /users:
     $ref: routes/users/index.yaml
 
   /users/{id}:
     $ref: routes/users/by-id.yaml
-    
+
   /requestTimeOff:
     $ref: routes/requestTimeOff/index.yaml
-    
+
   /requestTimeOff/{id}:
     $ref: routes/requestTimeOff/by-id.yaml
 
