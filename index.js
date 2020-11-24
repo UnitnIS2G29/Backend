@@ -1,11 +1,13 @@
-const express = require("express");
-const app = express();
+const app = require('./app');
+const mongoose = require('mongoose');
 
-app.use(express.json());
-app.use(express.urlencoded());
+const port = process.env.PORT ||  3000;
 
-const port = 3000;
+const dbOptions = require('./database/dbConst');
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
-});
+mongoose.connect(process.env.DBURL, dbOptions).then(() => {
+  console.log("Connected to mongo");
+  app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+  });
+})

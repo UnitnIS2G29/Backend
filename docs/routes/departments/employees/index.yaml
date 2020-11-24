@@ -1,0 +1,42 @@
+get:
+  description: Returns all employees of the department
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: department employees response
+      content:
+        'application/json':
+          schema:
+            type: array
+            items:
+              $ref: '../../../components/schemas.yaml#/User'
+    '401':
+      $ref: '../../../components/responses.yaml#/401Response'
+    '404':
+      $ref: '../../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../../components/responses.yaml#/500Response'
+
+post:
+  description: Add a new employee to the department
+  security:
+    - bearerAuth: []
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          $ref: '../../../components/schemas.yaml#/User'
+  responses:
+    '201':
+      description: succesfully added employee
+      content:
+        'application/json':
+          schema:
+            $ref: '../../../components/schemas.yaml#/User'
+    '400':
+      $ref:  '../../../components/responses.yaml#/400Response'
+    '401':
+      $ref:  '../../../components/responses.yaml#/401Response'
+    '500':
+      $ref: '../../../components/responses.yaml#/500Response'

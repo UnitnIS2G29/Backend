@@ -1,0 +1,59 @@
+get:
+  description: Get department from id
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '200':
+      description: Category
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/Department'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'
+
+put:
+  description: Update a department
+  security:
+    - bearerAuth: []
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  requestBody:
+    $ref: '../../components/requestBodies.yaml#/departmentsBodyRes'
+  responses:
+    '200':
+      description: Department update
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/Department'
+    '400':
+      $ref: '../../components/responses.yaml#/400Response'
+    '401':
+      $ref: '../../components/responses.yaml#/401Response'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'
+
+delete:
+  description: Delete a department
+  security:
+    - bearerAuth: []
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '200':
+      description: Department deletion
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/Department'
+    '401':
+      $ref: '../../components/responses.yaml#/401Response'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'

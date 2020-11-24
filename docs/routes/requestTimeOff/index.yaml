@@ -1,0 +1,42 @@
+get:
+  description: 'Get all requests, populates user'
+  summary: 'Get all requests'
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: 'Array of all requests'
+      content:
+        'application/json':
+          schema:
+            type: array
+            items:
+              $ref: '../../components/schemas.yaml#/RequestTimeOff'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'
+
+post:
+  description: 'Create a new request for some time off, specifying day, time and a reasoning for the request'
+  summary: Create a new request
+  security:
+    - bearerAuth: []
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          $ref: '../../components/schemas.yaml#/RequestTimeOff'
+  responses:
+    '201':
+      description: 'Succesfully added request'
+      content:
+        'application/json':
+          schema:
+              $ref: '../../components/schemas.yaml#/RequestTimeOff'
+    '400':
+      $ref: '../../components/responses.yaml#/400Response'
+    '401':
+      $ref: '../../components/responses.yaml#/401Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'
