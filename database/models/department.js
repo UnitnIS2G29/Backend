@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const db = require('../dbConnect');
 
 const departmentSchema = new mongoose.Schema({
     name: String,
@@ -14,5 +13,5 @@ const departmentSchema = new mongoose.Schema({
     ]
 })
 
-const Department = db.model('Department', departmentSchema);
+const Department = mongoose.model('Department', departmentSchema);
 module.exports = Department;
