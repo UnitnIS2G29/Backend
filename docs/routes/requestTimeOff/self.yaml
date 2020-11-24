@@ -1,0 +1,18 @@
+get:
+  summary: 'Get request for time off of the logged user'
+  description: 'Get request for time off of the logged user'
+  security:
+    - bearerAuth: []  
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '200':
+      description: Array of requests of the logged user
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/RequestTimeOff'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'

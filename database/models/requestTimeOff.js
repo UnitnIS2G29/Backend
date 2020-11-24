@@ -22,6 +22,7 @@ const requestTimeOffSChema = mongoose.Schema({
         type: String,
         required:true
     },
+    reviewed: Boolean,
     accepted: Boolean 
 })
 
