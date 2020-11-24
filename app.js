@@ -8,7 +8,6 @@ const usersRoute = require('./routes/users');
 const loginRoute = require('./routes/login');
 const categoriesRoute = require('./routes/categories');
 const timersRoute = require('./routes/timers');
-//const testRoute = require('./routes/testapi'); 
 
 app.use(morgan('dev'));
 app.use(cors());
@@ -21,7 +20,6 @@ app.use('/users', usersRoute);
 app.use('/login', loginRoute);
 app.use('/categories', categoriesRoute);
 app.use('/timers',timersRoute);
-//app.use('/test', testRoute);
 
 module.exports = app;
 
