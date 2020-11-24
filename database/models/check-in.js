@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const db = require('../dbConnect');
 
 const CheckInSchema = new mongoose.Schema({
     user: {
@@ -12,6 +11,6 @@ const CheckInSchema = new mongoose.Schema({
     }
 })
 
-const CheckIn = db.model('CheckIn', CheckInSchema);
+const CheckIn = mongoose.model('CheckIn', CheckInSchema);
 
 module.exports = CheckIn;
