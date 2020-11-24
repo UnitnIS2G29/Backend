@@ -17,7 +17,7 @@ app.use(express.urlencoded());
 
 app.use('/requestTimeOff', requestTimeOff);
 app.use('/users', usersRoute);
-app.use('/login', loginRoute);
+app.use('/authentications', loginRoute);
 app.use('/categories', categoriesRoute);
 app.use('/timers',timersRoute);
 
