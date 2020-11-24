@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const usersRoute = require('./routes/users');
 const loginRoute = require('./routes/login');
 const categoriesRoute = require('./routes/categories');
+const departmentsRoute = require('./routes/departments');
 
 app.use(morgan('dev'));
 app.use(cors());
@@ -16,6 +17,7 @@ app.use(express.urlencoded());
 app.use('/users', usersRoute);
 app.use('/login', loginRoute);
 app.use('/categories', categoriesRoute);
+app.use('/departments', departmentsRoute);
 
 const port = 3000;
 

@@ -2,6 +2,7 @@ const express = require('express');
 const _ = require("lodash");
 
 const Department = require('../database/models/department');
+const User = require('../database/models/user');
 const auth = require('../middlewares/auth');
 const {check, validationResult} = require('express-validator');
 
@@ -32,7 +33,7 @@ router.get('/:id/employees', auth(), async (req, res) => {
         const department = await Department.findById(req.params.id);
         console.log(department)
         console.log(department.employees)
-        res.send(department);
+        res.send(department.employees);
     } catch (e) {
         console.log(e);
         res.status(500).send({ error: e.message });
@@ -58,6 +59,31 @@ router.post('/', [
         res.status(500).send({ error: e.message });
     }
 });
+
+router.post('/:id/employees',
+    [
+        auth("admin"),
+        check("user").notEmpty().isString()
+    ],
+    async (req, res) => {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        try {
+            let user = await User.findById(req.body.user);
+            let department = await Department.findById(req.params.id);
+            department.employees.push(user);
+            department = await department.save();
+            res.status(201).send(department);
+
+        } catch (e) {
+            console.log(e)
+            res.status(500).send(e);
+        }
+    })
 
 router.put('/:id', [
     auth("supervisor"),
