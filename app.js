@@ -8,7 +8,7 @@ const usersRoute = require('./routes/users');
 const loginRoute = require('./routes/login');
 const categoriesRoute = require('./routes/categories');
 const checkinRoute = require('./routes/check-in');
-//const testRoute = require('./routes/testapi');
+const timersRoute = require('./routes/timers');
 
 app.use(morgan('dev'));
 app.use(cors());
@@ -18,10 +18,10 @@ app.use(express.urlencoded());
 
 app.use('/requestTimeOff', requestTimeOff);
 app.use('/users', usersRoute);
-app.use('/login', loginRoute);
+app.use('/authentications', loginRoute);
 app.use('/categories', categoriesRoute);
 app.use('/check-in', checkinRoute);
-//app.use('/test', testRoute);
+app.use('/timers',timersRoute);
 
 module.exports = app;
 

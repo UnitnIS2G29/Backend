@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.get('/', auth("supervisor"), async (req, res) => {
     try {
-      const requestTimeOff = await RequestTimeOff.find();
+      const requestTimeOff = await RequestTimeOff.find().populate('user');;
       res.send(requestTimeOff);
     } catch (e) {
       console.log(e);
@@ -29,6 +29,7 @@ router.post('/', [
     check('timeEnd').isRFC3339(),
     check('reason').optional({nullable:true}).isString(),
     check('category').isIn(RequestTypes),
+    check('reviewed').optional({nullable:true}).isBoolean(),
     check('accepted').optional({nullable:true}).isBoolean()
     ],
     async (req, res) => {
@@ -41,12 +42,10 @@ router.post('/', [
     try {
         let requestTimeOff = new RequestTimeOff(_.pick(req.body, ["day", "timeBegin","timeEnd","reason","category","accepted"]));
         requestTimeOff.user = req.user;
+        requestTimeOff.reviewed = 0;
         requestTimeOff = await requestTimeOff.save();
 
-        res.status(201).json({
-            message: 'POST Request is OK!',
-            requestTimeOff: requestTimeOff
-        });
+        res.status(201).send(requestTimeOff);
     } catch (e) {
         console.log(e);
         res.status(500).send({ error: e.message });
@@ -92,7 +91,7 @@ router.put('/:requestTimeOffId',  [
         return;
     }
     try {
-        let requestTimeOff = await RequestTimeOff.updateOne({_id: req.params.requestTimeOffId}, _.pick(req.body, ["accepted"]));
+        let requestTimeOff = await RequestTimeOff.updateOne({_id: req.params.requestTimeOffId}, _.pick(req.body, ["accepted","reviewed"]));
         res.status(201).send(requestTimeOff);
     } catch (e) {
         console.log(e);
