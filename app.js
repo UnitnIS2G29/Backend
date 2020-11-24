@@ -7,6 +7,8 @@ const requestTimeOff = require ('./routes/requestTimeOff');
 const usersRoute = require('./routes/users');
 const loginRoute = require('./routes/login');
 const categoriesRoute = require('./routes/categories');
+const departmentsRoute = require('./routes/departments');
+const checkinRoute = require('./routes/check-in');
 const timersRoute = require('./routes/timers');
 
 app.use(morgan('dev'));
@@ -19,6 +21,8 @@ app.use('/requestTimeOff', requestTimeOff);
 app.use('/users', usersRoute);
 app.use('/authentications', loginRoute);
 app.use('/categories', categoriesRoute);
+app.use('/departments', departmentsRoute)
+app.use('/check-in', checkinRoute);
 app.use('/timers',timersRoute);
 
 module.exports = app;
