@@ -50,6 +50,9 @@ paths:
   /requestTimeOff/{id}:
     $ref: routes/requestTimeOff/by-id.yaml
 
+  /requestTimeOff/self:
+    $ref: routes/requestTimeOff/self.yaml
+
 components:
   responses:
     $ref: components/responses.yaml
