@@ -66,16 +66,17 @@ RequestTimeOff:
   type: object
   required:
     - id
+    - user
     - day
     - timeBegin
     - timeEnd
-    - reason
     - category
-    - accepted
   properties:
     id:
       type: string
       description: 'id of the request'
+    user:
+      $ref: '#/User'
     day:
       type: string
       format: date
@@ -95,6 +96,9 @@ RequestTimeOff:
       type: string
       enum: [vacation, illness]
       description: 'Category of the request: illness or vacation'
+    reviewed:
+      type: boolean
+      description: 'Tracks if the request has been reviewed'
     accepted:
       type: boolean
       description: 'Tracks if the request has been approved'

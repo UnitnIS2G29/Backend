@@ -1,6 +1,8 @@
 get:
-  description: 'Get all requests'
+  description: 'Get all requests, populates user'
   summary: 'Get all requests'
+  security:
+    - bearerAuth: []
   responses:
     '200':
       description: 'Array of all requests'
@@ -18,6 +20,8 @@ get:
 post:
   description: 'Create a new request for some time off, specifying day, time and a reasoning for the request'
   summary: Create a new request
+  security:
+    - bearerAuth: []
   requestBody:
     content:
       'application/json':

@@ -7,6 +7,8 @@ const {check, validationResult} = require('express-validator');
 
 const router = express.Router();
 
+// Get all Categories
+
 router.get('/', auth(), async (req, res) => {
   try {
     const categories = await Category.find();
@@ -17,6 +19,8 @@ router.get('/', auth(), async (req, res) => {
   }
 });
 
+// Get Category by ID
+
 router.get('/:id', auth(), async (req, res) => {
   try {
     const category = await Category.findById(req.params.id);
@@ -26,6 +30,8 @@ router.get('/:id', auth(), async (req, res) => {
     res.status(500).send({ error: e.message });
   }
 });
+
+// Add new Category
 
 router.post('/', [
   auth("supervisor"),
@@ -47,6 +53,8 @@ router.post('/', [
   }
 });
 
+// Modify a category given the id
+
 router.put('/:id', [
   auth("supervisor"),
   check('name').notEmpty().isString(),
@@ -64,6 +72,8 @@ router.put('/:id', [
     console.log(e);
     res.status(500).send({ error: e.message });
   }});
+
+// Delete a category
 
 router.delete('/:id', auth("admin"), async (req, res) => {
   try {
