@@ -1,11 +1,13 @@
 get:
   summary: 'Get request for time off from id'
   description: 'Get request for time off from id'
+  security:
+    - bearerAuth: []
   parameters:
     - $ref: '../../components/parameters.yaml#/id'
   responses:
     '200':
-      description: Category
+      description: a singe request
       content:
         'application/json':
           schema:
@@ -18,6 +20,8 @@ get:
 put:
   summary: 'Modify or accept a request for time off'
   description: 'Modify or accept a request for time off'
+  security:
+    - bearerAuth: []
   parameters:
     - $ref: '../../components/parameters.yaml#/id'
   requestBody:
@@ -44,6 +48,8 @@ put:
 delete:
   summary: 'Delete a request for time off'
   description: 'Delete a request for time off'
+  security:
+    - bearerAuth: []
   parameters:
     - $ref: '../../components/parameters.yaml#/id'
   responses:

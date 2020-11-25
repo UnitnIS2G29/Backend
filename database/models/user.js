@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const JWT = require('jsonwebtoken');
-const db = require('../dbConnect');
 
 const UserSchema = new mongoose.Schema({
   name: String,
@@ -38,6 +37,6 @@ UserSchema.methods.generateToken = async function() {
   return token;
 }
 
-const User = db.model('User', UserSchema);
+const User = mongoose.model('User', UserSchema);
 
 module.exports = User;
