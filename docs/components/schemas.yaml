@@ -1,4 +1,4 @@
-category:
+Category:
   type: object
   properties:
     id:

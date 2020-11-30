@@ -1,14 +1,20 @@
 openapi: 3.0.0
+
 info:
   version: '1.0'
   title: "Gruppo 29 Unitn IS2"
+
 paths:
   /:
     $ref: routes/index.yaml
+
   /categories:
     $ref: routes/categories/index.yaml
+
   /categories/{id}:
     $ref: routes/categories/by-id.yaml
+  /check-in:
+    $ref: routes/check-in/check-in.yaml
 
 
   /timers:
@@ -29,8 +35,8 @@ paths:
   /deparments/{id}/employees:
     $ref: routes/departments/employees/index.yaml
 
-  /authentications:
-    $ref: routes/authentications/index.yaml
+  /login:
+    $ref: routes/login/index.yaml
 
   /users:
     $ref: routes/users/index.yaml
@@ -50,12 +56,16 @@ paths:
 components:
   responses:
     $ref: components/responses.yaml
+
   parameters:
     $ref: components/parameters.yaml
+
   requestBodies:
     $ref: components/requestBodies.yaml
+
   schemas:
     $ref: components/schemas.yaml
+
   securitySchemes:
     $ref: components/securitySchemas.yaml
 
