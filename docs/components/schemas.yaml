@@ -103,6 +103,36 @@ RequestTimeOff:
       type: boolean
       description: 'Tracks if the request has been approved'
 
+Shift:
+  type: object
+  required:
+    - id
+    - user
+    - day
+    - timeBegin
+    - timeEnd
+    - category
+  properties:
+    id:
+      type: string
+      description: 'id of the request'
+    user:
+      $ref: '#/User'
+    day:
+      type: string
+      format: date
+      description: 'Day of the shift'
+    timeBegin:
+      type: string
+      format: date-time
+      description: 'Start of the shift'
+    timeEnd:
+      type: string
+      format: date-time
+      description: 'End of the shift'
+    category:
+      $ref: '#/Category'
+
 Timestamp:
   type: integer
 
