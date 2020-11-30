@@ -1,4 +1,4 @@
-category:
+Category:
   type: object
   properties:
     id:
@@ -8,3 +8,103 @@ category:
     description:
       type: string
 
+Department:
+  type: object
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    description:
+      type: string
+    employees:
+      type: array
+
+
+Timer:
+  type: object
+  properties:
+    id:
+      type: string
+      description: Auto-incremental id
+
+    started_at:
+      type: string
+      description: Start time of the timer
+
+    stopped_at:
+      type: string
+      description: Stop time of the timer. Can be null if timer is running
+
+    category:
+      $ref: '#/Category'
+
+    description:
+      type: string
+      description: Description of the clocked event
+
+User:
+  type: object
+  properties:
+    id:
+      type: string
+      description: User id
+    name:
+      type: string
+      description: User name
+    email:
+      type: string
+      description: User email
+    password:
+      type: string
+      description: User hashed password
+    token:
+      type: array
+      description: User tokens for different sessions
+
+RequestTimeOff:
+  type: object
+  required:
+    - id
+    - user
+    - day
+    - timeBegin
+    - timeEnd
+    - category
+  properties:
+    id:
+      type: string
+      description: 'id of the request'
+    user:
+      $ref: '#/User'
+    day:
+      type: string
+      format: date
+      description: 'Date of day off requested'
+    timeBegin:
+      type: string
+      format: date-time
+      description: 'Start of the time off requested'
+    timeEnd:
+      type: string
+      format: date-time
+      description: 'End of the time off requested'
+    reason:
+      type: string
+      description: 'Short description of the reason for the request'
+    category:
+      type: string
+      enum: [vacation, illness]
+      description: 'Category of the request: illness or vacation'
+    reviewed:
+      type: boolean
+      description: 'Tracks if the request has been reviewed'
+    accepted:
+      type: boolean
+      description: 'Tracks if the request has been approved'
+
+Timestamp:
+  type: integer
+
+Empty:
+  nullable: true
