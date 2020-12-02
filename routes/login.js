@@ -12,9 +12,9 @@ const auth = require('../middlewares/auth');
 
 router.get('/', auth(), (req, res) => {
   try {
-    res.send(req.user);
+    return res.send(req.user);
   } catch (e) {
-    res.status(500).send(e)
+    return res.status(500).send(e)
   }
 })
 
@@ -31,23 +31,19 @@ router.post('/', [
     }
     console.log("Logging in");
     try {
-      console.log("Retrieving User");
-      console.log(req.body);
       const user = await User.findOne({email: req.body.email}).exec();
-      console.log(user);
       if(!user) {
-        res.status(404).send(new Error("User not found"));
+        return res.status(404).send(new Error("User not found"));
       }
-      console.log(user);
 
       if(user.password == req.body.password) {
         const token = await user.generateToken();
-        res.status(200).send({user, token});
+        return res.status(200).send({user, token});
       }
-
+      return res.status(401).send();
     } catch(e) {
       console.log(e);
-      res.status(500).send(e);
+      return res.status(500).send(e);
     }
 })
 
