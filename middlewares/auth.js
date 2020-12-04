@@ -15,9 +15,6 @@ const auth = (role) => async (req, res, next) => {
       const data = JWT.verify(token, process.env.AUTHKEY);                    // Decrypt the token received
       const user = await User.findOne({_id: data.id, 'tokens.token': token}); // Find user with id find in token and active token
 
-        console.log(role);
-        console.log(data.role);
-
       if((role == "supervisor" && data.role == "employee") || (role == "admin" && (data.role == "employee" || data.role == "supervisor")) || !user )
         throw new Error("Not Authorized User");
 
@@ -26,7 +23,6 @@ const auth = (role) => async (req, res, next) => {
       next();
 
     } catch (e) {
-      console.log(e);
       res.status(401).send(e);
     }
   }
