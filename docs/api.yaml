@@ -62,6 +62,9 @@ paths:
   /shifts/self:
     $ref: routes/shifts/self.yaml
 
+  /shifts/self/department:
+    $ref: routes/shifts/self_department.yaml
+
 
 components:
   responses:

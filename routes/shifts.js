@@ -4,6 +4,7 @@ const {check, validationResult} = require('express-validator');
 
 const auth = require('../middlewares/auth');
 const Shift = require('../database/models/shift');
+const Department = require('../database/models/department');
 const router = express.Router();
 
 
@@ -11,7 +12,7 @@ const router = express.Router();
 
 router.get('/', auth("supervisor"), async (req, res) => {
     try {
-      const shift = await Shift.find().populate('user').populate('category');
+      const shift = await Shift.find().populate('user','name').populate('category','name');
       res.send(shift);
     } catch (e) {
       console.log(e);
@@ -52,12 +53,27 @@ router.get('/self', auth(), async (req, res) => {
     try {
       const shift = await Shift.find({
         'user': req.user
-      });
+      }).populate('category','name');
       res.send(shift);
     } catch (e) {
       console.log(e);
       res.status(500).send({ error: e.message });
     }
+});
+
+//GET THE SHIFTS OF THE DEPARTMENT OF THE CURRENTLY LOGGED IN USER
+
+router.get('/self/department', auth(), async (req, res) => {
+  try {
+    const department = await Department.findOne({
+      'employees': req.user
+    });
+    const shift = await Shift.find().where('user').in(department.employees).populate('user','name').populate('category','name');
+    res.send(shift);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send({ error: e.message });
+  }
 });
 
 //GET A SHIFT BY ID
