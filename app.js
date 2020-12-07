@@ -10,6 +10,7 @@ const categoriesRoute = require('./routes/categories');
 const departmentsRoute = require('./routes/departments');
 const checkinRoute = require('./routes/check-in');
 const timersRoute = require('./routes/timers');
+const projectsRoute = require('./routes/projects');
 
 app.use(morgan('dev'));
 app.use(cors());
@@ -24,6 +25,7 @@ app.use('/categories', categoriesRoute);
 app.use('/departments', departmentsRoute)
 app.use('/check-in', checkinRoute);
 app.use('/timers',timersRoute);
+app.use('/projects', projectsRoute);
 
 module.exports = app;
 
