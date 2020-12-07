@@ -1,0 +1,15 @@
+get:
+  description: Returns all Projects (Categories)
+  responses:
+    '200':
+      description: Projects Response
+      content:
+        'application/json':
+          schema:
+            type: array
+            items:
+              $ref: '../../components/schemas.yaml#/Category'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'

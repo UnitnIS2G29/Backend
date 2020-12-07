@@ -1,0 +1,15 @@
+get:
+  description: Get Project (Category) by ID
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '200':
+      description: Project
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/CategoryWithTime'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'
