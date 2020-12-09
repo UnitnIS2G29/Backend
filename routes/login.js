@@ -47,5 +47,15 @@ router.post('/', [
     }
 })
 
+router.delete('/', auth(), async (req, res) => {
+  try{
+    await User.findByIdAndUpdate(req.user._id, {tokens: []});
+    res.status(200).send("Ok");
+  } catch(e) {
+    console.log(e);
+    return res.status(500).send(e);
+  }
+})
+
 module.exports = router;
 
