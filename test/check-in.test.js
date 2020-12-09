@@ -59,7 +59,6 @@ describe("Check-in testing", () => {
   // Test endpoint data saved in DB
 
   test("GET /check-in ~Test endpoint data saved in DB~", async done => {
-    let req_date = new Date();
     let res = await request(app).get('/check-in/')
       .set("Authorization", `Bearer ${token}`)
       .expect(200)
