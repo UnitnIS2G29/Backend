@@ -18,11 +18,11 @@ paths:
     $ref: routes/projects/index.yaml
 
   /projects/{id}:
-    $ref: routes/projects/by-id.yaml  
+    $ref: routes/projects/by-id.yaml
 
   /projects/{id}/timers:
-    $ref: routes/projects/by-id.yaml    
-  
+    $ref: routes/projects/by-id.yaml
+
   /check-in:
     $ref: routes/check-in/check-in.yaml
 
@@ -45,7 +45,7 @@ paths:
   /deparments/{id}/employees:
     $ref: routes/departments/employees/index.yaml
 
-  /login:
+  /authentiations:
     $ref: routes/login/index.yaml
 
   /users:
