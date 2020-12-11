@@ -51,6 +51,9 @@ paths:
   /users:
     $ref: routes/users/index.yaml
 
+  /users/self/:
+    $ref: routes/users/self.yaml
+
   /users/{id}:
     $ref: routes/users/by-id.yaml
 
