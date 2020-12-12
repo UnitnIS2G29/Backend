@@ -74,7 +74,7 @@ router.put('/:id', [
 
 // Delete a category
 
-router.delete('/:id', auth("admin"), async (req, res) => {
+router.delete('/:id', auth("supervisor"), async (req, res) => {
   try {
     const id = req.params.id;
     let category = await Category.findById(id);
