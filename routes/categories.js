@@ -26,7 +26,6 @@ router.get('/:id', auth(), async (req, res) => {
     const category = await Category.findById(req.params.id);
     res.send(category);
   } catch (e) {
-    debugDB(e);
     return res.status(500).send({ error: e.message });
   }
 });
