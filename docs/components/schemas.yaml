@@ -8,6 +8,30 @@ Category:
     description:
       type: string
 
+CategoryWithTime:
+  type: object
+  properties:
+    id:
+      type: string
+
+    name:
+      type: string
+
+    description:
+      type: string
+
+    total_time:
+      type: string
+      format: time
+
+    first_entry:
+      type: string
+      format: date-time
+
+    last_entry:
+      type: string
+      format: date-time
+
 Department:
   type: object
   properties:
