@@ -4,6 +4,7 @@ const Category = require("../database/models/category");
 
 const setupDB = require("./utils/dbSetup");
 const app = require("../app");
+const mongoose = require("mongoose");
 
 
 describe("CATEGORIES testing", () => {
@@ -63,10 +64,10 @@ describe("CATEGORIES testing", () => {
     });
 
     test("GET Category fail",async done => {
-        const res = await request(app).get('/categories/definitelynotanid')
+        const res = await request(app).get('/categories/'+mongoose.Types.ObjectId())
         .set("Authorization", `Bearer ${token}`)
         .send()
-        .expect(500);
+        .expect(404);
         done();
     });
 
@@ -80,6 +81,14 @@ describe("CATEGORIES testing", () => {
         .set("Authorization", `Bearer ${token}`)
         .send({name: "Nuovo nome per la categoria",description:"Descrizione della categoria"})
         .expect(201);
+        done();
+    });
+
+    test("PUT Category edit fail",async done => {
+        const res2 = await request(app).put('/categories/'+mongoose.Types.ObjectId())
+        .set("Authorization", `Bearer ${token}`)
+        .send({name: "Nuovo nome per la categoria",description:"Descrizione della categoria"})
+        .expect(404);
         done();
     });
 
