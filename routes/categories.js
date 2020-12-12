@@ -24,6 +24,9 @@ router.get('/', auth(), async (req, res) => {
 router.get('/:id', auth(), async (req, res) => {
   try {
     const category = await Category.findById(req.params.id);
+    if(!category){
+      return res.status(404).send(new Error("CATEGORY NOT FOUND"));
+    }
     res.status(200).send(category);
   } catch (e) {
     return res.status(500).send({ error: e.message });
@@ -65,7 +68,11 @@ router.put('/:id', [
     return res.status(400).send({errors: errors.array()});
 
   try {
-    let category = await Category.updateOne({_id: req.params.id}, _.pick(req.body, ["name", "description"]));
+    let category = await Category.findById(req.params.id);
+    if(!category){
+      return res.status(404).send(new Error("CATEGORY NOT FOUND"));
+    }
+    category.update(_.pick(req.body, ["name", "description"]));
     return res.status(201).send(category);
   } catch (e) {
     console.log(e);
@@ -78,6 +85,9 @@ router.delete('/:id', auth("supervisor"), async (req, res) => {
   try {
     const id = req.params.id;
     let category = await Category.findById(id);
+    if(!category){
+      return res.status(404).send(new Error("CATEGORY NOT FOUND"));
+    }
     category = await category.remove();
     res.status(200).send(category);
   } catch (e) {
