@@ -1,0 +1,42 @@
+get:
+  description: 'Get all shifts, populates user'
+  summary: 'Get all shifts'
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: 'Array of all shifts'
+      content:
+        'application/json':
+          schema:
+            type: array
+            items:
+              $ref: '../../components/schemas.yaml#/Shift'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'
+
+post:
+  description: 'Create a new shift, specifying day, start and end time and for what project (category) it is for'
+  summary: Create a new shift
+  security:
+    - bearerAuth: []
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          $ref: '../../components/schemas.yaml#/Shift'
+  responses:
+    '201':
+      description: 'Succesfully added shift'
+      content:
+        'application/json':
+          schema:
+              $ref: '../../components/schemas.yaml#/Shift'
+    '400':
+      $ref: '../../components/responses.yaml#/400Response'
+    '401':
+      $ref: '../../components/responses.yaml#/401Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'

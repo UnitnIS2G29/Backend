@@ -12,7 +12,7 @@ const router = express.Router();
 router.get('/', auth(), async (req, res) => {
   try {
     const categories = await Category.find();
-    res.send(categories);
+    res.status(200).send(categories);
   } catch (e) {
     console.log(e);
     return res.status(500).send({ error: e.message });
@@ -24,9 +24,8 @@ router.get('/', auth(), async (req, res) => {
 router.get('/:id', auth(), async (req, res) => {
   try {
     const category = await Category.findById(req.params.id);
-    res.send(category);
+    res.status(200).send(category);
   } catch (e) {
-    debugDB(e);
     return res.status(500).send({ error: e.message });
   }
 });
@@ -80,7 +79,7 @@ router.delete('/:id', auth("admin"), async (req, res) => {
     const id = req.params.id;
     let category = await Category.findById(id);
     category = await category.remove();
-    res.send(category);
+    res.status(200).send(category);
   } catch (e) {
     console.log(e);
     return res.status(500).send({ error: e.message });

@@ -1,0 +1,63 @@
+get:
+  summary: 'Get a shift from id'
+  description: 'Get a shift from id'
+  security:
+    - bearerAuth: []
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '200':
+      description: a single shift
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/Shift'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'
+
+put:
+  summary: 'Modify a shift'
+  description: 'Modify a shift'
+  security:
+    - bearerAuth: []
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          $ref: '../../components/schemas.yaml#/Shift'
+  responses:
+    '200':
+      description: 'Modified shift'
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/Shift'
+    '400':
+      $ref: '../../components/responses.yaml#/400Response'
+    '401':
+      $ref: '../../components/responses.yaml#/401Response'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'
+
+delete:
+  summary: 'Delete a shift'
+  description: 'Delete a shift'
+  security:
+    - bearerAuth: []
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '200':
+      $ref: '../../components/responses.yaml#/200Response'
+    '401':
+      $ref: '../../components/responses.yaml#/401Response'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'

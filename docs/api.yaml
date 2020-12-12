@@ -63,6 +63,19 @@ paths:
   /requestTimeOff/self:
     $ref: routes/requestTimeOff/self.yaml
 
+  /shifts/:
+    $ref: routes/shifts/index.yaml
+  
+  /shifts/{id}:
+    $ref: routes/shifts/by-id.yaml
+
+  /shifts/self:
+    $ref: routes/shifts/self.yaml
+
+  /shifts/self/department:
+    $ref: routes/shifts/self_department.yaml
+
+
 components:
   responses:
     $ref: components/responses.yaml
