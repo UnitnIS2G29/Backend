@@ -15,7 +15,7 @@ router.get('/', auth(), async (req, res) => {
     res.send(categories);
   } catch (e) {
     console.log(e);
-    res.status(500).send({ error: e.message });
+    return res.status(500).send({ error: e.message });
   }
 });
 
@@ -27,7 +27,7 @@ router.get('/:id', auth(), async (req, res) => {
     res.send(category);
   } catch (e) {
     debugDB(e);
-    res.status(500).send({ error: e.message });
+    return res.status(500).send({ error: e.message });
   }
 });
 
@@ -41,15 +41,15 @@ router.post('/', [
   const errors = validationResult(req);
 
   if(!errors.isEmpty())
-    res.status(400).send({errors: errors.array()});
+    return res.status(400).send({errors: errors.array()});
 
   try {
     let category = new Category(_.pick(req.body, ["name", "description"]));
     category = await category.save();
-    res.status(201).send(category);
+    return res.status(201).send(category);
   } catch (e) {
     console.log(e);
-    res.status(500).send({ error: e.message });
+    return res.status(500).send({ error: e.message });
   }
 });
 
@@ -63,14 +63,14 @@ router.put('/:id', [
   const errors = validationResult(req);
 
   if(!errors.isEmpty())
-    res.status(400).send({errors: errors.array()});
+    return res.status(400).send({errors: errors.array()});
 
   try {
     let category = await Category.updateOne({_id: req.params.id}, _.pick(req.body, ["name", "description"]));
-    res.status(201).send(category);
+    return res.status(201).send(category);
   } catch (e) {
     console.log(e);
-    res.status(500).send({ error: e.message });
+    return res.status(500).send({ error: e.message });
   }});
 
 // Delete a category
@@ -83,7 +83,7 @@ router.delete('/:id', auth("admin"), async (req, res) => {
     res.send(category);
   } catch (e) {
     console.log(e);
-    res.status(500).send({ error: e.message });
+    return res.status(500).send({ error: e.message });
   }
 });
 
