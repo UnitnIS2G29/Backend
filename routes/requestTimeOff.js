@@ -25,8 +25,32 @@ router.get('/', auth("supervisor"), async (req, res) => {
 router.post('/', [
     auth(),
     check('day').isRFC3339(),
+    check('day').custom((value, { req }) => {
+      if(new Date(value) <= new Date()) {
+          throw new Error ('day is before today');
+      }
+      return true;
+    }),
     check('timeBegin').isRFC3339(),
+    check('timeBegin').custom((value, { req }) => {
+      if(new Date(value) <= new Date()) {
+          throw new Error ('timeBegin is before now');
+      }
+      return true;
+    }),
     check('timeEnd').isRFC3339(),
+    check('timeEnd').custom((value, { req }) => {
+      if(new Date(value) <= new Date()) {
+          throw new Error ('timeEnd is before now');
+      }
+      return true;
+    }),
+    check('timeEnd').custom((value, { req }) => {
+      if(new Date(value) <= new Date(req.body.timeBegin)) {
+          throw new Error ('timeBegin is before timeEnd');
+      }
+      return true;
+    }),
     check('reason').optional({nullable:true}).isString(),
     check('category').isIn(RequestTypes),
     check('reviewed').optional({nullable:true}).isBoolean(),
