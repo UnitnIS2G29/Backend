@@ -1,0 +1,26 @@
+put:
+  description: Update user password
+  security:
+    - bearerAuth: []
+  requestBody:
+    description: New Password
+    content:
+      'application/json':
+        schema:
+          type: object
+          properties:
+            password:
+              type: string
+  responses:
+    '201':
+      description: User update
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/User'
+    '400':
+      $ref: '../../components/responses.yaml#/400Response'
+    '401':
+      $ref: '../../components/responses.yaml#/401Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'

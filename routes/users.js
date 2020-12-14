@@ -69,6 +69,32 @@ router.get('/:id', auth("supervisor"), async (req, res) => {
   }
 })
 
+router.put('/self',
+  [
+    auth(),
+    body('password').isLength({min: 5})
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    try {
+      let user = req.user;
+
+      user.password = req.body.password;
+      user = await user.save();
+
+      res.status(201).send(user);
+    } catch (e) {
+      console.log(e);
+      res.status(500).send(e);
+    }
+  }
+)
+
+
 router.put('/:id',
   [
     auth("supervisor"),
