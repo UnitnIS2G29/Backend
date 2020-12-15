@@ -1,12 +1,9 @@
 const request = require("supertest");
 const User = require("../database/models/user");
-const RequestTimeOff = require("../database/models/RequestTimeOff");
-const Timer = require("../database/models/timer");
 
 const setupDB = require("./utils/dbSetup");
 const app = require("../app");
-const mongoose = require("mongoose");
-const moment = require("moment");
+
 
 
 describe("requestTimeOff testing", () => {
