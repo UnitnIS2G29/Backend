@@ -17,5 +17,6 @@ script:
   - echo $API_VALIDATION_OUTPUT
 
   # run node tests
+  - NODE_ENV=development npm install
   - DBURL=mongodb://mongo_test:27017/is2g29testing_ AUTHKEY=12345678 jest --detectOpenHandles
 
