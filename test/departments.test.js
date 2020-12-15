@@ -9,7 +9,7 @@ const app = require("../app");
 describe("Check-in testing", () => {
   let user;
   let token;
-  setupDB("check-in_testing");
+  setupDB("departments_testing");
 
   beforeEach(async () => {
     let userObj = {
