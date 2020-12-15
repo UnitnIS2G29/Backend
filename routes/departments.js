@@ -18,6 +18,16 @@ router.get('/', auth(), async (req, res) => {
     }
 });
 
+router.get('/self', auth(), async (req, res) => {
+    try {
+        let departments = await Department.find({employees: {_id: req.user}})
+        res.send(departments)
+    } catch (e) {
+        console.log(e);
+        res.status(500).send({error: e.message});
+    }
+});
+
 router.get('/:id', auth(), async (req, res) => {
     try {
         const department = await Department.findById(req.params.id);
