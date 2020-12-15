@@ -8,7 +8,7 @@ env:
 install:
   npm install -g swagger-cli
   npm install -g jest
-  npm install -g supertest
+  npm install supertest
 script:
   # validate apis
   - echo "Validating $PATH_TO_VALIDATE/API_PATH:"
