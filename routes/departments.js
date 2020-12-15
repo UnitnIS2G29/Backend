@@ -8,6 +8,10 @@ const {check, validationResult} = require('express-validator');
 
 const router = express.Router();
 
+/**
+ * Get Departments
+ * Returns all the saved departments
+ */
 router.get('/', auth(), async (req, res) => {
     try {
         const departments = await Department.find();
@@ -18,6 +22,10 @@ router.get('/', auth(), async (req, res) => {
     }
 });
 
+/**
+ * Get Departments
+ * Returns every department where the logged user is an employee
+ */
 router.get('/self', auth(), async (req, res) => {
     try {
         let departments = await Department.find({employees: {_id: req.user}})
@@ -28,6 +36,10 @@ router.get('/self', auth(), async (req, res) => {
     }
 });
 
+/**
+ * Get a particular Department
+ * Returns the requested department
+ */
 router.get('/:id', auth(), async (req, res) => {
     try {
         const department = await Department.findById(req.params.id);
@@ -38,6 +50,10 @@ router.get('/:id', auth(), async (req, res) => {
     }
 });
 
+/**
+ * Get employees of a department
+ * Returns list the of employees in the requested department
+ */
 router.get('/:id/employees', auth(), async (req, res) => {
     try {
         const department = await Department.findById(req.params.id);
@@ -50,6 +66,11 @@ router.get('/:id/employees', auth(), async (req, res) => {
     }
 });
 
+/**
+ * Add a new Department
+ * Create and insert in the database a new department
+ * Returns the newly created department
+ */
 router.post('/', [
     auth("supervisor"),
     check('name').notEmpty().isString(),
@@ -70,6 +91,10 @@ router.post('/', [
     }
 });
 
+/**
+ * Add a new employee to the Department
+ * Returns the modified Department
+ */
 router.post('/:id/employees',
     [
         auth("admin"),
@@ -95,6 +120,10 @@ router.post('/:id/employees',
         }
     })
 
+/**
+ * Modify a Department
+ * Returns the modified department
+ */
 router.put('/:id', [
     auth("supervisor"),
     check('name').notEmpty().isString(),
@@ -113,6 +142,10 @@ router.put('/:id', [
         res.status(500).send({ error: e.message });
     }});
 
+/**
+ * Delete department
+ * Returns the deleted department
+ */
 router.delete('/:id', auth("admin"), async (req, res) => {
     try {
         const id = req.params.id;
