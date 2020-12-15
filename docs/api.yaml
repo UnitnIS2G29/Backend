@@ -39,6 +39,9 @@ paths:
   /departments:
     $ref: routes/departments/index.yaml
 
+  /departments/self:
+    $ref: routes/departments/self.yaml
+
   /departments/{id}:
     $ref: routes/departments/by-id.yaml
 
