@@ -9,6 +9,7 @@ install:
   npm install -g swagger-cli
   npm install -g jest
   npm install supertest
+  npm install
 script:
   # validate apis
   - echo "Validating $PATH_TO_VALIDATE/API_PATH:"
