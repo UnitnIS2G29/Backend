@@ -1,0 +1,16 @@
+get:
+  description: Returns the departments of the current user
+  responses:
+    '200':
+      description: departments response
+      content:
+        'application/json':
+          schema:
+            type: array
+            items:
+              $ref: '../../components/schemas.yaml#/Department'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'
+
