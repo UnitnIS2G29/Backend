@@ -1,0 +1,18 @@
+get:
+  summary: 'Get shifts of the department of the logged user'
+  description: 'Get shifts of the department of the logged user'
+  security:
+    - bearerAuth: []  
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '200':
+      description: Array of shifts of the department of the logged user
+      content:
+        'application/json':
+          schema:
+            $ref: '../../components/schemas.yaml#/Shift'
+    '404':
+      $ref: '../../components/responses.yaml#/404Response'
+    '500':
+      $ref: '../../components/responses.yaml#/500Response'

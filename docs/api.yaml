@@ -13,6 +13,16 @@ paths:
 
   /categories/{id}:
     $ref: routes/categories/by-id.yaml
+
+  /projects:
+    $ref: routes/projects/index.yaml
+
+  /projects/{id}:
+    $ref: routes/projects/by-id.yaml
+
+  /projects/{id}/timers:
+    $ref: routes/projects/by-id.yaml
+
   /check-in:
     $ref: routes/check-in/check-in.yaml
 
@@ -35,11 +45,14 @@ paths:
   /deparments/{id}/employees:
     $ref: routes/departments/employees/index.yaml
 
-  /authentications:
-    $ref: routes/authentications/index.yaml
+  /authentiations:
+    $ref: routes/login/index.yaml
 
   /users:
     $ref: routes/users/index.yaml
+
+  /users/self/:
+    $ref: routes/users/self.yaml
 
   /users/{id}:
     $ref: routes/users/by-id.yaml
@@ -52,6 +65,19 @@ paths:
 
   /requestTimeOff/self:
     $ref: routes/requestTimeOff/self.yaml
+
+  /shifts/:
+    $ref: routes/shifts/index.yaml
+  
+  /shifts/{id}:
+    $ref: routes/shifts/by-id.yaml
+
+  /shifts/self:
+    $ref: routes/shifts/self.yaml
+
+  /shifts/self/department:
+    $ref: routes/shifts/self_department.yaml
+
 
 components:
   responses:

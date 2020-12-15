@@ -12,10 +12,10 @@ const router = express.Router();
 router.get('/', auth(), async (req, res) => {
   try {
     const categories = await Category.find();
-    res.send(categories);
+    res.status(200).send(categories);
   } catch (e) {
     console.log(e);
-    res.status(500).send({ error: e.message });
+    return res.status(500).send({ error: e.message });
   }
 });
 
@@ -24,10 +24,12 @@ router.get('/', auth(), async (req, res) => {
 router.get('/:id', auth(), async (req, res) => {
   try {
     const category = await Category.findById(req.params.id);
-    res.send(category);
+    if(!category){
+      return res.status(404).send(new Error("CATEGORY NOT FOUND"));
+    }
+    res.status(200).send(category);
   } catch (e) {
-    debugDB(e);
-    res.status(500).send({ error: e.message });
+    return res.status(500).send({ error: e.message });
   }
 });
 
@@ -41,15 +43,15 @@ router.post('/', [
   const errors = validationResult(req);
 
   if(!errors.isEmpty())
-    res.status(400).send({errors: errors.array()});
+    return res.status(400).send({errors: errors.array()});
 
   try {
     let category = new Category(_.pick(req.body, ["name", "description"]));
     category = await category.save();
-    res.status(201).send(category);
+    return res.status(201).send(category);
   } catch (e) {
     console.log(e);
-    res.status(500).send({ error: e.message });
+    return res.status(500).send({ error: e.message });
   }
 });
 
@@ -63,27 +65,34 @@ router.put('/:id', [
   const errors = validationResult(req);
 
   if(!errors.isEmpty())
-    res.status(400).send({errors: errors.array()});
+    return res.status(400).send({errors: errors.array()});
 
   try {
-    let category = await Category.updateOne({_id: req.params.id}, _.pick(req.body, ["name", "description"]));
-    res.status(201).send(category);
+    let category = await Category.findById(req.params.id);
+    if(!category){
+      return res.status(404).send(new Error("CATEGORY NOT FOUND"));
+    }
+    category.update(_.pick(req.body, ["name", "description"]));
+    return res.status(201).send(category);
   } catch (e) {
     console.log(e);
-    res.status(500).send({ error: e.message });
+    return res.status(500).send({ error: e.message });
   }});
 
 // Delete a category
 
-router.delete('/:id', auth("admin"), async (req, res) => {
+router.delete('/:id', auth("supervisor"), async (req, res) => {
   try {
     const id = req.params.id;
     let category = await Category.findById(id);
+    if(!category){
+      return res.status(404).send(new Error("CATEGORY NOT FOUND"));
+    }
     category = await category.remove();
-    res.send(category);
+    res.status(200).send(category);
   } catch (e) {
     console.log(e);
-    res.status(500).send({ error: e.message });
+    return res.status(500).send({ error: e.message });
   }
 });
 
