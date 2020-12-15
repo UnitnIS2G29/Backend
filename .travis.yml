@@ -7,6 +7,8 @@ env:
   - GH_URL=https://raw.githubusercontent.com PATH_TO_VALIDATE=$GH_URL/${TRAVIS_PULL_REQUEST_SLUG:-$TRAVIS_REPO_SLUG}/${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH} API_PATH=docs/api.yaml
 install:
   npm install -g swagger-cli
+  npm install -g jest
+  npm install -g supertest
 script:
   # validate apis
   - echo "Validating $PATH_TO_VALIDATE/API_PATH:"
@@ -15,5 +17,5 @@ script:
   - echo $API_VALIDATION_OUTPUT
 
   # run node tests
-  - npm run test
+  - DBURL=mongodb://mongo_test:27017/is2g29testing_ AUTHKEY=12345678 jest --detectOpenHandles
 
