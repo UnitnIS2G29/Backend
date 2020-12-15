@@ -69,7 +69,7 @@ router.get('/:id', auth("supervisor"), async (req, res) => {
   }
 })
 
-router.put('/self',
+router.put('/self/password',
   [
     auth(),
     body('password').isLength({min: 5})

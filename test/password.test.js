@@ -24,8 +24,8 @@ describe("Password testing", () => {
 
   // Test for user change in Database
 
-  test("PUT /users/self ~Test user change in DB~", async done => {
-    let res = await request(app).put('/users/self')
+  test("PUT /users/self/password ~Test user change in DB~", async done => {
+    let res = await request(app).put('/users/self/password')
       .set("Authorization", `Bearer ${token}`)
       .set('Content-Type', 'application/json')
       .send({password: "87654321"})
