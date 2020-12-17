@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "DBURL=mongodb://localhost:27017/is2g29 AUTHKEY=12345678 nodemon index.js",
     "dev:auth": "DISABLEAUTH=true DBURL=mongodb://localhost:27017/is2g29 AUTHKEY=12345678 nodemon index.js",
-    "test": "DBURL=mongodb://localhost:27017/is2g29testing_ AUTHKEY=12345678 jest --detectOpenHandles ",
+    "test": "DBURL=mongodb://localhost:27017/is2g29testing_ AUTHKEY=12345678 jest --detectOpenHandles --testTimeout=30000",
     "test:watch": "DBURL=mongodb://localhost:27017/is2g29testing_ AUTHKEY=12345678 jest --watch --detectOpenHandles"
   },
   "repository": {
