@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - '12'
+services:
+  - mongodb
+env:
+  - GH_URL=https://raw.githubusercontent.com PATH_TO_VALIDATE=$GH_URL/${TRAVIS_PULL_REQUEST_SLUG:-$TRAVIS_REPO_SLUG}/${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH} API_PATH=docs/api.yaml
+install:
+  npm install -g swagger-cli
+script:
+  # validate apis
+  - echo "Validating $PATH_TO_VALIDATE/API_PATH:"
+  - API_VALIDATION_OUTPUT=`swagger-cli validate $PATH_TO_VALIDATE/$API_PATH`
+
+  - echo $API_VALIDATION_OUTPUT
+
+  # run node tests
+  - NODE_ENV=development npm install
+  - DBURL=mongodb://mongo_test:27017/is2g29testing_ AUTHKEY=12345678 jest --detectOpenHandles --runInBand
+
